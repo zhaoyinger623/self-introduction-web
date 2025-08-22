@@ -35,4 +35,9 @@ export default defineConfig({
       },
     },
   },
+  source: {
+    define: {
+      "process.env.PUBLIC_URL": JSON.stringify("/self-introduction-web/"),
+    },
+  },
 });
