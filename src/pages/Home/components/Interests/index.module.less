@@ -1,0 +1,183 @@
+.interestsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.interestCard {
+  background: white;
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.interestCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.02),
+    rgba(139, 92, 246, 0.02)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.interestCard:hover::before {
+  opacity: 1;
+}
+
+.interestCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.interestCard:hover::after {
+  transform: scaleX(1);
+}
+
+.interestCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.interestIcon {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.interestIcon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.interestCard:hover .interestIcon::before {
+  transform: translateX(100%);
+}
+
+.interestCard:hover .interestIcon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+}
+
+.interestCard h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.interestCard h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.interestCard:hover h3::after {
+  opacity: 1;
+}
+
+.interestCard p {
+  color: #64748b;
+  line-height: 1.7;
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .interestsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .interestCard {
+    padding: 2.5rem 2rem;
+  }
+
+  .interestIcon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .interestCard h3 {
+    font-size: 1.5rem;
+  }
+
+  .interestCard p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .interestCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .interestIcon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .interestCard h3 {
+    font-size: 1.4rem;
+  }
+
+  .interestCard p {
+    font-size: 0.95rem;
+  }
+}

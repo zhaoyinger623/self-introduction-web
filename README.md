@@ -1,70 +1,170 @@
-# Getting Started with Create React App
+# 个人介绍页面 - 基于 React、TypeScript 和 Rsbuild
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+这个项目使用 [React](https://reactjs.org/)、[TypeScript](https://www.typescriptlang.org/) 和 [Rsbuild](https://rsbuild.dev/) 构建。
 
-## Available Scripts
+## 🚀 技术特性
 
-In the project directory, you can run:
+- **React 19.1.1**: 最新的 React 版本
+- **TypeScript**: 类型安全的 JavaScript 超集
+- **Less**: CSS 预处理器，支持变量、嵌套、混合等
+- **Framer Motion**: 专业的动画库
+- **Lucide React**: 现代化的图标库
+- **React Router**: 单页应用路由管理
+- **Rsbuild**: 现代构建工具，支持 TypeScript 和 Less
+
+## 🏗️ 项目结构
+
+```
+src/
+├── components/           # 可复用组件
+│   ├── About/           # About组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   ├── Hero/            # Hero组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   ├── Skills/          # Skills组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   ├── Portfolio/       # Portfolio组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   ├── Experience/      # Experience组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   ├── Interests/       # Interests组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   ├── Footer/          # Footer组件文件夹
+│   │   ├── index.tsx    # 组件主文件
+│   │   └── index.module.less  # 组件样式文件
+│   └── Navbar/          # Navbar组件文件夹
+│       ├── index.tsx    # 组件主文件
+│       └── index.module.less  # 组件样式文件
+├── pages/               # 页面组件
+│   └── Home/            # Home页面文件夹
+│       └── index.tsx    # 页面主文件
+├── App.tsx              # 主应用组件（路由配置）
+├── App.css              # 全局样式
+├── index.tsx            # 应用入口
+└── index.css            # 全局基础样式
+```
+
+## 📱 页面内容
+
+### 1. 导航栏 (Navbar)
+
+- 固定顶部导航
+- 毛玻璃效果
+- 平滑滚动导航
+
+### 2. 英雄区域 (Hero)
+
+- 全屏渐变背景
+- 浮动卡片动画
+- 行动号召按钮
+
+### 3. 关于我 (About)
+
+- 个人简介
+- 统计数据展示
+- 社交媒体链接
+
+### 4. 技能展示 (Skills)
+
+- 技术栈分类
+- 技能进度条
+- 响应式网格布局
+
+### 5. 作品展示 (Portfolio)
+
+- 项目卡片
+- 悬停覆盖层
+- 技术标签
+
+### 6. 工作经历 (Experience)
+
+- 时间线布局
+- 交替显示
+- 详细描述
+
+### 7. 个人兴趣 (Interests)
+
+- 兴趣卡片
+- 图标展示
+- 悬停缩放效果
+
+### 8. 页脚 (Footer)
+
+- 版权信息
+- 快速导航链接
+
+## 🛠️ 可用脚本
+
+在项目目录中，您可以运行：
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+启动开发服务器，在 [http://localhost:3000](http://localhost:3000) 打开。
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+构建生产版本到 `build` 文件夹。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run preview`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+预览构建结果。
 
-### `npm run eject`
+## 🔧 开发特性
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### TypeScript 支持
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 完整的类型检查
+- 智能提示和自动补全
+- 编译时错误检测
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Less 预处理器
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 变量和嵌套
+- 混合和函数
+- 模块化样式管理
 
-## Learn More
+### 组件化架构
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 每个组件独立文件夹
+- 组件和样式紧密关联
+- 易于维护和扩展
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 响应式设计
 
-### Code Splitting
+- 移动优先设计
+- 多断点适配
+- 触摸友好交互
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 安装依赖
 
-### Analyzing the Bundle Size
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 开始开发
 
-### Making a Progressive Web App
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📚 学习资源
 
-### Advanced Configuration
+- [React 官方文档](https://reactjs.org/docs/getting-started.html)
+- [TypeScript 官方文档](https://www.typescriptlang.org/docs/)
+- [Less 官方文档](http://lesscss.org/)
+- [Framer Motion 文档](https://www.framer.com/motion/)
+- [Rsbuild 官方文档](https://rsbuild.dev/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🤝 贡献
 
-### Deployment
+欢迎提交 Issue 和 Pull Request！
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**用代码创造美好体验！** ✨
