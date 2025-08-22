@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "rsbuild dev",
     "start": "rsbuild dev",
-    "build": "rsbuild build",
+    "build": "rsbuild build --base /self-introduction-web/",
     "preview": "rsbuild preview",
     "test": "react-scripts test",
     "predeploy": "npm run build",
