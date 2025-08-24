@@ -1,8 +1,8 @@
 .section {
-  padding: 8rem 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 60px 0;
+  background-color: #fff;
+  // background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
   position: relative;
-  overflow: hidden;
 }
 
 .section::before {
@@ -17,237 +17,370 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 3rem;
-  position: relative;
-  z-index: 1;
+  padding: 0 24px;
 }
 
-.sectionTitle {
+// 顶部标题区域
+.headerSection {
   text-align: center;
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 4rem;
-  color: #1e293b;
+  margin-bottom: 80px;
+}
+
+.featureTag {
+  display: inline-block;
+  background: rgb(242, 236, 255);
+  color: #7f48e1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// Features 卡片区域
+.featuresSection {
+  margin-bottom: 80px;
+}
+
+.featureCard {
+  height: 100%;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 8px 32px rgba(127, 72, 225, 0.1);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, #1e293b 0%, #374151 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(127, 72, 225, 0.2);
+  }
+
+  :global {
+    .ant-card-body {
+      padding: 20px 20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
-.sectionTitle::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 6px;
-  background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
-  border-radius: 3px;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-}
-
-.aboutContent {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 6rem;
+.cardIconWrapper {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #7f48e1, #5378ff);
+  border-radius: 16px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.aboutText h3 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  color: #1e293b;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.cardIcon {
+  width: 24x;
+  height: 24x;
+  color: white;
 }
 
-.aboutText p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #475569;
+.cardTitle {
+  color: #2d1b69;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.cardDescription {
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 24px !important;
+  flex-grow: 1;
+
+  .highlight {
+    color: #7f48e1;
+    font-weight: bolder;
+    font-size: 24px;
+    padding: 0 4px;
+  }
+}
+
+.cardStats {
+  text-align: center;
+  margin-bottom: 16px;
+
+  .ant-statistic {
+    .ant-statistic-content {
+      .ant-statistic-content-value {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.learnMoreBtn {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #7f48e1, #5378ff);
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #6a3fd8, #4a6bff);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(127, 72, 225, 0.3);
+  }
+}
+
+.abilityTag {
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+// 个人评价样式
+.evaluationSection {
+  margin-bottom: 60px;
+}
+
+.evaluationCard {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 12px 40px rgba(127, 72, 225, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+
+  .ant-card-body {
+    padding: 40px;
+  }
+}
+
+.evaluationTitle {
+  color: #2d1b69;
+  text-align: center;
+  margin-bottom: 24px !important;
+  font-weight: bolder;
+}
+
+.evaluationText {
+  font-size: 16px;
   line-height: 1.8;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px !important;
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.highlightText {
+  font-size: 16px;
+}
+
+// 技能标签样式
+.skillsSection {
+  // margin-bottom: 60px;
+  text-align: center;
+}
+
+.skillsTitle {
+  color: #2d1b69;
+  margin-bottom: 8px !important;
+  font-weight: bolder;
+}
+
+.skillsContainer {
+  justify-content: center;
+  padding: 20px 0;
+
+  // 为标签添加间距，让悬停效果更明显
+  .ant-space-item {
+    margin: 8px;
+
+    // 确保标签在悬停时有足够的空间
+    &:hover {
+      z-index: 100;
+    }
+  }
+}
+
+.skillTag {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
   font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  cursor: pointer;
+  transform-origin: center bottom;
+
+  // 为不同颜色的标签添加特殊的悬停效果
+  &[class*="ant-tag-purple"]:hover {
+    box-shadow: 0 2px 10px rgba(139, 92, 246, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(2deg);
+  }
+
+  &[class*="ant-tag-blue"]:hover {
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(-2deg);
+  }
+
+  &[class*="ant-tag-green"]:hover {
+    box-shadow: 0 2px 10px rgba(34, 197, 94, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(1deg);
+  }
+
+  &[class*="ant-tag-orange"]:hover {
+    box-shadow: 0 2px 10px rgba(249, 115, 22, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(-1deg);
+  }
+
+  &[class*="ant-tag-red"]:hover {
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(2deg);
+  }
+
+  &[class*="ant-tag-cyan"]:hover {
+    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(-2deg);
+  }
+
+  &[class*="ant-tag-geekblue"]:hover {
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(1deg);
+  }
+
+  &[class*="ant-tag-volcano"]:hover {
+    box-shadow: 0 2px 10px rgba(251, 146, 60, 0.2);
+    transform: translateY(-4px) scale(1.1) rotate(-1deg);
+  }
+}
+
+// 社交链接样式
+.socialSection {
+  text-align: center;
 }
 
 .socialLinks {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 3rem;
+  justify-content: center;
 }
 
 .socialLink {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  border-radius: 50%;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.socialLink::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.socialLink:hover::before {
-  left: 100%;
-}
-
-.socialLink:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
-}
-
-.aboutStats {
-  display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  align-items: center;
+  text-decoration: none;
+  color: #7f48e1;
+  transition: all 0.3s ease;
+  padding: 16px;
+  border-radius: 16px;
+
+  &:hover {
+    color: #5378ff;
+    transform: translateY(-4px);
+    background: rgba(127, 72, 225, 0.1);
+  }
 }
 
-.statItem {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(99, 102, 241, 0.1);
+.socialIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
 }
 
-.statItem::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.statItem:hover::before {
-  transform: scaleX(1);
-}
-
-.statItem:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-.statItem h4 {
-  font-size: 3.5rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.75rem;
-  text-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-}
-
-.statItem p {
-  color: #64748b;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* 响应式设计 */
+// 响应式设计
 @media (max-width: 768px) {
   .section {
-    padding: 6rem 0;
-  }
-
-  .aboutContent {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  .sectionTitle {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    padding: 60px 0;
   }
 
   .container {
-    padding: 0 2rem;
+    padding: 0 16px;
   }
 
-  .aboutText h3 {
+  .headerSection {
+    margin-bottom: 60px;
+  }
+
+  .sectionTitle {
     font-size: 2rem;
   }
 
-  .aboutText p {
-    font-size: 1.1rem;
+  .featuresSection {
+    margin-bottom: 60px;
   }
 
-  .statItem {
-    padding: 2.5rem 1.5rem;
+  .featureCard .ant-card-body {
+    padding: 24px;
   }
 
-  .statItem h4 {
-    font-size: 3rem;
+  .cardIconWrapper {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+  }
+
+  .cardIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .evaluationCard .ant-card-body {
+    padding: 24px;
+  }
+
+  .skillsContainer {
+    justify-content: center;
+  }
+
+  .socialLinks {
+    flex-direction: column;
+    align-items: center;
+
+    .ant-space-item {
+      margin-bottom: 16px;
+    }
   }
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: 4rem 0;
-  }
-
   .sectionTitle {
-    font-size: 2rem;
-  }
-
-  .aboutText h3 {
     font-size: 1.8rem;
   }
 
-  .aboutText p {
-    font-size: 1rem;
+  .featureTag {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
-  .socialLinks {
-    gap: 1rem;
+  .cardTitle {
+    font-size: 1.3rem;
   }
 
-  .socialLink {
-    width: 3.5rem;
-    height: 3.5rem;
+  .evaluationText {
+    font-size: 14px;
   }
 
-  .statItem {
-    padding: 2rem 1rem;
+  .skillTag {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
-  .statItem h4 {
-    font-size: 2.5rem;
+  .learnMoreBtn {
+    height: 36px;
+    font-size: 14px;
   }
 }

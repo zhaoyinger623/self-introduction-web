@@ -13,7 +13,7 @@ const Portfolio: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          精选作品
+          作品
         </motion.h2>
         <div className={styles.portfolioGrid}>
           <motion.div
