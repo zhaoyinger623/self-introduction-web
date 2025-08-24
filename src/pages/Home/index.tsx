@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       {/* <Skills /> */}
       <Portfolio />
       <Experience />
-      <Interests />
+      {/* <Interests /> */}
       <Footer />
     </>
   );

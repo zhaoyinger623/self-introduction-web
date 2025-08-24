@@ -13,14 +13,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p>&copy; 2024 前端开发工程师. 用代码创造美好体验.</p>
-          <div className={styles.footerLinks}>
-            <a href="#about">关于我</a>
-            <a href="#skills">技能</a>
-            <a href="#portfolio">作品</a>
-            <a href="#experience">经历</a>
-            <a href="#interests">兴趣</a>
-          </div>
+          <p>&copy; 赵莹玥 前端开发工程师. 用代码创造美好体验.</p>
         </motion.div>
       </div>
     </footer>
