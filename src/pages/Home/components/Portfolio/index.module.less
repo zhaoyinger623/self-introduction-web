@@ -1,227 +1,328 @@
 .section {
-  padding: 24px;
-}
-.portfolioGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-}
-
-.portfolioItem {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
   position: relative;
-  border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
-.portfolioItem::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.05),
-    rgba(139, 92, 246, 0.05)
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.portfolioItem:hover::before {
-  opacity: 1;
+// 顶部标题区域
+.headerSection {
+  text-align: center;
+  margin-bottom: 80px;
 }
 
-.portfolioItem:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+.featureTag {
+  display: inline-block;
+  background: rgb(242, 236, 255);
+  color: #7f48e1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d1b69;
+  margin-bottom: 24px !important;
+  letter-spacing: 1px;
+}
+
+.sectionSubtitle {
+  font-size: 14px;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto !important;
+  line-height: 1.6;
+}
+
+// 作品行样式
+.portfolioRow {
+  margin-bottom: 100px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// 作品内容区域
+.portfolioContent {
+  padding: 20px 0;
+}
+
+.portfolioTitle {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 12px !important;
+  line-height: 1.2;
+}
+
+.portfolioDescription {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 12px !important;
+  div {
+    margin-bottom: 12px;
+  }
+}
+
+// 功能特性列表
+.featureList {
+  margin-bottom: 16px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.featureIcon {
+  width: 20px;
+  height: 20px;
+  color: #00c896;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+// 技术标签
+.techTags {
+  margin-bottom: 32px;
+
+  .ant-tag {
+    margin: 4px;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// 查看项目按钮
+.viewProjectBtn {
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #7f48e1, #5378ff);
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #6a3fd8, #4a6bff);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(127, 72, 225, 0.3);
+  }
+}
+
+.btnIcon {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+// 作品图片容器
+.portfolioImageContainer {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(127, 72, 225, 0.15);
 }
 
 .portfolioImage {
-  height: 250px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolioImage::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="code" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" font-family="monospace" font-size="8" fill="white" opacity="0.3" text-anchor="middle">&lt;/&gt;</text></pattern></defs><rect width="100" height="100" fill="url(%23code)"/></svg>');
-  opacity: 0.3;
-}
-
-.portfolioOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.8),
-    rgba(99, 102, 241, 0.9)
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
-}
-
-.portfolioItem:hover .portfolioOverlay {
-  opacity: 1;
-}
-
-.portfolioOverlay h4 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
-}
-
-.portfolioItem:hover .portfolioOverlay h4 {
-  transform: translateY(0);
-}
-
-.portfolioOverlay p {
-  font-size: 1rem;
-  opacity: 0.9;
-  font-weight: 500;
-  transform: translateY(20px);
-  transition: transform 0.4s ease 0.1s;
-}
-
-.portfolioItem:hover .portfolioOverlay p {
-  transform: translateY(0);
-}
-
-.portfolioInfo {
-  padding: 2.5rem;
-  background: white;
-  position: relative;
-  z-index: 2;
-}
-
-.portfolioInfo h3 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 1.25rem;
-  color: #1e293b;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.portfolioInfo p {
-  color: #64748b;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-  font-weight: 500;
-  font-size: 1.05rem;
-}
-
-.portfolioTags {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.portfolioTags span {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-  color: #6366f1;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolioTags span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(99, 102, 241, 0.1),
-    transparent
-  );
-  transition: left 0.5s;
+  height: 400px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // 添加一些装饰性元素
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+  }
 }
 
-.portfolioTags span:hover::before {
-  left: 100%;
+// 图片覆盖层
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.portfolioTags span:hover {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+// 覆盖卡片
+.overlayCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 160px;
 }
 
-/* 响应式设计 */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+
+  .cardIcon {
+    width: 24px;
+    height: 24px;
+    color: #7f48e1;
+    margin-right: 8px;
+  }
+
+  span {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+  }
+}
+
+.cardValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7f48e1;
+  margin-bottom: 8px;
+}
+
+.cardTrend {
+  font-size: 14px;
+  color: #00c896;
+  font-weight: 600;
+}
+
+// 响应式设计
 @media (max-width: 768px) {
-  .portfolioGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .headerSection {
+    margin-bottom: 60px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .portfolioRow {
+    margin-bottom: 80px;
+  }
+
+  .portfolioTitle {
+    font-size: 1.6rem;
+    margin-bottom: 20px !important;
+  }
+
+  .portfolioDescription {
+    font-size: 1rem;
+    margin-bottom: 24px !important;
   }
 
   .portfolioImage {
-    height: 200px;
+    height: 300px;
   }
 
-  .portfolioInfo {
-    padding: 2rem;
+  .overlayCard {
+    padding: 20px;
+    min-width: 140px;
   }
 
-  .portfolioInfo h3 {
-    font-size: 1.4rem;
+  .cardValue {
+    font-size: 1.5rem;
   }
 
-  .portfolioInfo p {
-    font-size: 1rem;
+  .techTags {
+    .ant-tag {
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+  }
+
+  .viewProjectBtn {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .portfolioTitle {
+    font-size: 1.4rem;
+  }
+
   .portfolioImage {
-    height: 180px;
+    height: 250px;
   }
 
-  .portfolioInfo {
-    padding: 1.5rem;
+  .overlayCard {
+    padding: 16px;
+    min-width: 120px;
   }
 
-  .portfolioInfo h3 {
+  .cardValue {
     font-size: 1.3rem;
   }
 
-  .portfolioTags span {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
+  .featureIcon {
+    width: 18px;
+    height: 18px;
   }
 }
