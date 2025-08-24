@@ -6,10 +6,12 @@ import Portfolio from "./components/Portfolio";
 import Experience from "./components/Experience";
 import Interests from "./components/Interests";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 const Home: React.FC = () => {
   return (
     <>
+      <Navbar />
       <Hero />
       <About />
       <Skills />

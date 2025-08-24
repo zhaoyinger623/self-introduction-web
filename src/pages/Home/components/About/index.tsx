@@ -14,7 +14,7 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          关于我
+          工作成果
         </motion.h2>
         <div className={styles.aboutContent}>
           <motion.div

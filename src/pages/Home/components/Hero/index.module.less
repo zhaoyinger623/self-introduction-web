@@ -4,38 +4,48 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  color: white;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(246, 243, 252, 0.8) 30%,
+    rgba(230, 218, 255, 0.7) 100%
+  );
+  // url("../../../../assets/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
+  padding: 0 10vw;
+  box-sizing: border-box;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.3;
-  animation: float 20s ease-in-out infinite;
-}
+// .hero::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="#9e7be6" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+//   opacity: 0.3;
+//   animation: float 20s ease-in-out infinite;
+// }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 70%
-  );
-  animation: rotate 30s linear infinite;
-}
+// .hero::after {
+//   content: "";
+//   position: absolute;
+//   top: -50%;
+//   left: -50%;
+//   right: -50%;
+//   bottom: -50%;
+//   background: radial-gradient(
+//     circle,
+//     rgba(255, 255, 255, 0.1) 0%,
+//     transparent 70%
+//   );
+//   animation: rotate 30s linear infinite;
+// }
 
 @keyframes float {
   0%,
@@ -57,45 +67,48 @@
 }
 
 .heroContent {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   position: relative;
   z-index: 1;
 }
 
+.heroText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .heroText h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  margin-bottom: 2rem;
-  line-height: 1.1;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-size: 30px;
+  font-weight: bolder;
   animation: slideInLeft 1s ease-out;
+  margin-bottom: 12px;
 }
 
 .highlight {
-  background: linear-gradient(45deg, #ffd700, #ffed4e, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  display: inline-block;
+  // background: linear-gradient(45deg, #ffd700, #ffed4e, #ff6b6b);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // background-clip: text;
+  // position: relative;
+  // display: inline-block;
+  color: #7f48e1;
 }
 
 .highlight::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(45deg, #ffd700, #ffed4e, #ff6b6b);
-  border-radius: 2px;
-  transform: scaleX(0);
-  animation: expandWidth 1.5s ease-out 0.5s forwards;
+  // content: "";
+  // position: absolute;
+  // bottom: -5px;
+  // left: 0;
+  // right: 0;
+  // height: 4px;
+  // background: linear-gradient(45deg, #ffd700, #ffed4e, #ff6b6b);
+  // border-radius: 2px;
+  // transform: scaleX(0);
+  // animation: expandWidth 1.5s ease-out 0.5s forwards;
 }
 
 @keyframes expandWidth {
@@ -116,10 +129,8 @@
 }
 
 .heroText p {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.95;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 2;
   animation: slideInLeft 1s ease-out 0.2s both;
 }
 
@@ -128,48 +139,26 @@
 }
 
 .ctaButton {
-  background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff8e53);
+  width: fit-content;
+  margin-top: 16px;
+  background: linear-gradient(45deg, rgba(131, 55, 249), #5378ff);
   color: white;
   border: none;
-  padding: 1.2rem 2.5rem;
-  font-size: 1.2rem;
-  font-weight: 700;
+  padding: 8px 32px;
+  font-size: 16px;
+  font-weight: bolder;
   border-radius: 50px;
-  cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 2px 3px 1px #cbaaff;
   position: relative;
   overflow: hidden;
   animation: slideInLeft 1s ease-out 0.6s both;
 }
 
-.ctaButton::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.ctaButton:hover::before {
-  left: 100%;
-}
-
 .ctaButton:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
-}
-
-.ctaButton:active {
-  transform: translateY(-1px) scale(1.02);
+  background: linear-gradient(45deg, rgb(145, 77, 246), #6d89f1) !important;
+  color: white !important;
+  box-shadow: 0 2px 3px 1px #cbaaff !important;
 }
 
 .heroVisual {
@@ -181,6 +170,94 @@
   animation: slideInRight 1s ease-out 0.3s both;
 }
 
+.cardGrid {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floatingCard {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  padding: 20px 24px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(127, 72, 225, 0.15);
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTop {
+  top: 0;
+  animation: floatTop 6s ease-in-out infinite;
+}
+
+.cardLeft {
+  left: 0;
+  animation: floatLeft 6s ease-in-out infinite;
+}
+
+.cardRight {
+  right: 0;
+  animation: floatRight 6s ease-in-out infinite;
+}
+
+.cardBottom {
+  bottom: 0;
+  animation: floatBottom 6s ease-in-out infinite;
+}
+
+@keyframes floatTop {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
+@keyframes floatLeft {
+  0%,
+  100% {
+    transform: translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateX(-15px) scale(1.05);
+  }
+}
+
+@keyframes floatRight {
+  0%,
+  100% {
+    transform: translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateX(15px) scale(1.05);
+  }
+}
+
+@keyframes floatBottom {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(15px) scale(1.05);
+  }
+}
+
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -190,20 +267,6 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-.floatingCard {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 24px;
-  padding: 2.5rem;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: float 6s ease-in-out infinite;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
 }
 
 .floatingCard::before {
@@ -236,29 +299,29 @@
 }
 
 .floatingCard:hover {
-  transform: translateY(-15px) scale(1.05);
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 20px 50px rgba(127, 72, 225, 0.25);
+  z-index: 10;
+  border-color: rgba(127, 72, 225, 0.6);
 }
 
 .cardIcon {
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: 1.5rem;
-  color: #ffd700;
-  filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #7f48e1;
   transition: all 0.3s ease;
 }
 
 .floatingCard:hover .cardIcon {
   transform: scale(1.2) rotate(10deg);
-  filter: drop-shadow(0 8px 16px rgba(255, 215, 0, 0.5));
 }
 
 .floatingCard span {
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  font-weight: bolder;
+  text-shadow: 0 1px 6px #d0bef1;
 }
 
 .scrollIndicator {
@@ -295,53 +358,29 @@
   }
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .heroContent {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 3rem;
-    padding: 0 2rem;
-  }
+.heroTitle {
+  font-size: 30px !important;
+  font-weight: bolder !important;
+  animation: slideInLeft 1s ease-out;
+  margin-bottom: 12px !important;
+  color: #2d1b69 !important;
+  letter-spacing: 2px;
+  line-height: 55px;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
 
-  .heroText h1 {
-    font-size: 3rem;
-  }
-
-  .heroText p {
-    font-size: 1.2rem;
-  }
-
-  .ctaButton {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-  }
-
-  .floatingCard {
-    padding: 2rem;
-  }
-
-  .cardIcon {
-    width: 3rem;
-    height: 3rem;
+  .ant-typography {
+    color: inherit !important;
   }
 }
 
-@media (max-width: 480px) {
-  .heroText h1 {
-    font-size: 2.5rem;
-  }
+.heroDescription {
+  font-size: 16px !important;
+  line-height: 2 !important;
+  animation: slideInLeft 1s ease-out 0.2s both;
+  color: #4a2b8a !important;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
 
-  .heroText p {
-    font-size: 1.1rem;
-  }
-
-  .ctaButton {
-    padding: 0.9rem 1.8rem;
-    font-size: 1rem;
-  }
-
-  .floatingCard {
-    padding: 1.5rem;
+  .ant-typography {
+    color: inherit !important;
   }
 }

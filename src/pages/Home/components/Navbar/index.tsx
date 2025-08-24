@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code } from "lucide-react";
+import { Rabbit } from "lucide-react";
 import styles from "./index.module.less";
 
 const Navbar: React.FC = () => {
@@ -12,8 +12,8 @@ const Navbar: React.FC = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Code className={styles.navIcon} />
-        <span>前端开发者</span>
+        <Rabbit className={styles.navIcon} />
+        <span>赵莹玥-前端开发工程师</span>
       </motion.div>
       <motion.div
         className={styles.navLinks}

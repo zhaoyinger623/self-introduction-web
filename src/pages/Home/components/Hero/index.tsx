@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Palette, Zap, ArrowDown } from "lucide-react";
+import { Code, Palette, Lightbulb, Zap } from "lucide-react";
+import { Button } from "antd";
 import styles from "./index.module.less";
 
 const Hero: React.FC = () => {
@@ -13,18 +14,20 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1>
-            你好，我是<span className={styles.highlight}>前端开发工程师</span>
+          <h1 className={styles.heroTitle}>
+            你好，欢迎访问<span className={styles.highlight}>赵莹玥</span>
+            的个人网站。
+            <div>很高兴认识你～</div>
           </h1>
-          <p>专注于创造美观、流畅、用户友好的Web体验</p>
-          <p>热爱设计，擅长动画，追求代码与艺术的完美结合</p>
-          <motion.button
-            className={styles.ctaButton}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            了解更多
-          </motion.button>
+          <div className={styles.heroDescription}>
+            专注于创造美观、流畅、用户友好的Web体验
+          </div>
+          <div className={styles.heroDescription}>
+            热爱设计，追求代码与艺术的完美结合
+          </div>
+          <Button size="large" className={styles.ctaButton}>
+            开始了解
+          </Button>
         </motion.div>
         <motion.div
           className={styles.heroVisual}
@@ -32,27 +35,26 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className={styles.floatingCard}>
-            <Code className={styles.cardIcon} />
-            <span>React</span>
-          </div>
-          <div className={styles.floatingCard}>
-            <Palette className={styles.cardIcon} />
-            <span>设计</span>
-          </div>
-          <div className={styles.floatingCard}>
-            <Zap className={styles.cardIcon} />
-            <span>创新</span>
+          <div className={styles.cardGrid}>
+            <div className={`${styles.floatingCard} ${styles.cardTop}`}>
+              <Code className={styles.cardIcon} />
+              <span>前端开发</span>
+            </div>
+            <div className={`${styles.floatingCard} ${styles.cardLeft}`}>
+              <Palette className={styles.cardIcon} />
+              <span>UX体验</span>
+            </div>
+            <div className={`${styles.floatingCard} ${styles.cardRight}`}>
+              <Lightbulb className={styles.cardIcon} />
+              <span>产品设计</span>
+            </div>
+            <div className={`${styles.floatingCard} ${styles.cardBottom}`}>
+              <Zap className={styles.cardIcon} />
+              <span>创新</span>
+            </div>
           </div>
         </motion.div>
       </div>
-      <motion.div
-        className={styles.scrollIndicator}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <ArrowDown />
-      </motion.div>
     </section>
   );
 };
