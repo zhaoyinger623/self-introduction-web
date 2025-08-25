@@ -18,6 +18,12 @@
   overflow: hidden;
   padding: 0 10vw;
   box-sizing: border-box;
+
+  // 移动端顶部边距，防止被 navbar 遮挡
+  // @media (max-width: 768px) {
+  //   padding-top: calc(60px + env(safe-area-inset-top));
+  //   min-height: calc(100vh - 60px - env(safe-area-inset-top));
+  // }
 }
 
 // .hero::before {
@@ -382,5 +388,28 @@
 
   .ant-typography {
     color: inherit !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 16px;
+  }
+  .heroTitle {
+    font-size: 18px !important;
+    line-height: 24px !important;
+  }
+  .heroDescription {
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+  .cardGrid {
+    display: none;
+  }
+  .ctaButton {
+    padding: 4px 12px;
+    font-size: 12px;
+    height: 24px;
+    margin-top: 8px;
   }
 }

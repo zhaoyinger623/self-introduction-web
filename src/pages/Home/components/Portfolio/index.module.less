@@ -102,18 +102,18 @@
 // 技术标签
 .techTags {
   margin-bottom: 32px;
+  :global {
+    .ant-tag {
+      margin: 4px;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
 
-  .ant-tag {
-    margin: 4px;
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-weight: 500;
-    border: none;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
     }
   }
 }
@@ -243,7 +243,7 @@
 // 响应式设计
 @media (max-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 16px 0;
   }
 
   .container {
@@ -251,29 +251,55 @@
   }
 
   .headerSection {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .sectionTitle {
-    font-size: 24px;
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
   }
 
-  .portfolioRow {
-    margin-bottom: 60px;
+  .portfolioContent {
+    padding-bottom: 0;
   }
 
   .portfolioTitle {
-    font-size: 1.6rem;
-    margin-bottom: 20px !important;
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
   }
 
   .portfolioDescription {
-    font-size: 1rem;
-    margin-bottom: 24px !important;
+    font-size: 14px !important;
   }
 
-  .portfolioImage {
-    height: 300px;
+  .techTags {
+    margin-bottom: 0;
+    :global {
+      .ant-tag {
+        font-size: 12px;
+        padding: 2px 8px;
+      }
+    }
+  }
+
+  .portfolioImageContainer {
+    width: 100% !important;
+    img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+
+  .portfolioRow {
+    :global {
+      .ant-row {
+        row-gap: 20px !important;
+      }
+    }
+  }
+
+  .trasferRow {
+    flex-direction: column-reverse !important;
   }
 
   .overlayCard {
@@ -285,44 +311,9 @@
     font-size: 1.5rem;
   }
 
-  .techTags {
-    .ant-tag {
-      padding: 4px 10px;
-      font-size: 12px;
-    }
-  }
-
   .viewProjectBtn {
     height: 40px;
     padding: 0 20px;
     font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sectionTitle {
-    font-size: 20px;
-  }
-
-  .portfolioTitle {
-    font-size: 14px;
-  }
-
-  .portfolioImage {
-    height: 250px;
-  }
-
-  .overlayCard {
-    padding: 16px;
-    min-width: 120px;
-  }
-
-  .cardValue {
-    font-size: 14px;
-  }
-
-  .featureIcon {
-    width: 18px;
-    height: 18px;
   }
 }

@@ -304,7 +304,7 @@
 // 响应式设计
 @media (max-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 16px 0;
   }
 
   .container {
@@ -315,72 +315,63 @@
     margin-bottom: 40px;
   }
 
-  .sectionTitle {
-    font-size: 2rem;
+  .featureTag {
+    font-size: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .evaluationTitle {
+    font-size: 18px !important;
+  }
+
+  .evaluationText,
+  .highlightText {
+    font-size: 14px;
   }
 
   .featuresSection {
     margin-bottom: 60px;
   }
 
-  .featureCard .ant-card-body {
-    padding: 24px;
+  .featureCard {
+    :global {
+      .ant-card-body {
+        padding: 16px;
+      }
+    }
   }
 
   .cardIconWrapper {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
   }
 
   .cardIcon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .evaluationCard .ant-card-body {
-    padding: 24px;
-  }
-
-  .skillsContainer {
-    justify-content: center;
-  }
-
-  .socialLinks {
-    flex-direction: column;
-    align-items: center;
-
-    .ant-space-item {
-      margin-bottom: 16px;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .sectionTitle {
-    font-size: 1.8rem;
-  }
-
-  .featureTag {
-    font-size: 12px;
-    padding: 6px 12px;
+    width: 20px;
+    height: 20px;
   }
 
   .cardTitle {
-    font-size: 1.3rem;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
   }
 
-  .evaluationText {
-    font-size: 14px;
+  .cardDescription {
+    font-size: 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .highlight {
+    font-size: 16px !important;
   }
 
   .skillTag {
-    font-size: 12px;
-    padding: 6px 12px;
+    font-size: 14px !important;
+    padding: 4px 12px !important;
   }
 
-  .learnMoreBtn {
-    height: 36px;
-    font-size: 14px;
+  .skillsTitle {
+    font-size: 18px !important;
   }
 }

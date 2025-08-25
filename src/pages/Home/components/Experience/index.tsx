@@ -134,7 +134,7 @@ const Experience: React.FC = () => {
                 <Title level={4} className={styles.honorsTitle}>
                   荣誉成就
                 </Title>
-                <Space wrap className={styles.honorsTags}>
+                <div className={styles.honorsTags}>
                   <Tag color="gold" className={styles.tagItem}>
                     2024年季度优秀员工
                   </Tag>
@@ -144,7 +144,7 @@ const Experience: React.FC = () => {
                   <Tag color="green" className={styles.tagItem}>
                     2025年晋升成功
                   </Tag>
-                </Space>
+                </div>
               </div>
             </Card>
           </motion.div>

@@ -9,6 +9,21 @@
   padding: 12px;
   background: #fff;
   z-index: 1000;
+
+  // 移动端优化
+  @supports (-webkit-touch-callout: none) {
+    /* iOS Safari 特殊处理 */
+    position: -webkit-sticky;
+  }
+
+  // 确保在移动端有足够的顶部安全区域
+  @supports (padding-top: env(safe-area-inset-top)) {
+    padding-top: calc(12px + env(safe-area-inset-top));
+  }
+
+  // 添加阴影和边框，增强视觉层次
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navBrand {
@@ -49,7 +64,6 @@
   position: relative;
   padding: 0 12px;
   border-radius: 12px;
-  margin-bottom: 4px;
 }
 
 .navLinks div:hover {
@@ -71,4 +85,39 @@
 
 .navLinks div:hover::after {
   width: 80%;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    // 移动端 sticky 定位优化
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    // 增加移动端的内边距
+    padding: 16px 12px;
+
+    // 确保在移动端有足够的顶部安全区域
+    @supports (padding-top: env(safe-area-inset-top)) {
+      padding-top: calc(16px + env(safe-area-inset-top));
+    }
+
+    // 移动端阴影优化
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .navBrand {
+    font-size: 12px;
+    gap: 4px;
+    .navIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .navLinks div {
+    font-size: 10px;
+    padding: 0 8px;
+  }
 }

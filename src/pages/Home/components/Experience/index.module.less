@@ -43,7 +43,7 @@
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 2px;
   background: linear-gradient(to bottom, #6366f1, #8b5cf6, #ec4899);
   transform: translateX(-50%);
   box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
@@ -74,7 +74,7 @@
   align-items: center;
   justify-content: center;
   color: #6366f1;
-  z-index: 3;
+  z-index: 100;
   box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
   transition: all 0.3s ease;
 
@@ -243,6 +243,7 @@
 .honorsTags {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   .tagItem {
     margin-right: 8px;
@@ -290,30 +291,27 @@
 // 响应式设计
 @media (max-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 16px 0;
   }
 
   .container {
     padding: 0 16px;
   }
 
-  .headerSection {
-    margin-bottom: 40px;
-  }
-
   .sectionTitle {
-    font-size: 2rem !important;
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
   }
 
   .experienceTimeline::before {
-    left: 30px;
+    left: 8px;
   }
 
   .timelineMarker {
-    left: 30px;
+    left: 8px;
     transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 
     &:hover {
       transform: translateX(-50%) scale(1.1);
@@ -321,23 +319,25 @@
   }
 
   .experienceCard {
-    width: calc(100% - 60px);
-    margin-left: 60px !important;
+    width: calc(100% - 30px);
+    margin-left: 30px !important;
     margin-right: 0 !important;
 
-    .ant-card-body {
-      padding: 20px;
+    :global {
+      .ant-card-body {
+        padding: 16px;
+      }
     }
   }
 
   .timelineItem:nth-child(even) .experienceCard {
-    margin-left: 60px !important;
+    margin-left: 30px !important;
     margin-right: 0 !important;
   }
 
   .cardHeader {
-    flex-direction: column;
-    gap: 16px;
+    // flex-direction: column;
+    gap: 12px;
   }
 
   .companyLogo {
@@ -345,82 +345,34 @@
   }
 
   .jobTitle {
-    font-size: 1.3rem !important;
+    font-size: 16px !important;
   }
 
   .companyName {
-    font-size: 1rem;
-  }
-
-  .workPeriod {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section {
-    padding: 40px 0;
-  }
-
-  .headerSection {
-    margin-bottom: 40px;
-  }
-
-  .sectionTitle {
-    font-size: 1.8rem !important;
-  }
-
-  .sectionSubtitle {
-    font-size: 1rem !important;
-  }
-
-  .experienceTimeline::before {
-    left: 25px;
-  }
-
-  .timelineMarker {
-    left: 25px;
-    width: 45px;
-    height: 45px;
-  }
-
-  .experienceCard {
-    width: calc(100% - 50px);
-    margin-left: 50px !important;
-
-    .ant-card-body {
-      padding: 16px;
+    font-size: 14px;
+    .locationIcon {
+      width: 12px;
+      height: 12px;
     }
   }
 
-  .timelineItem:nth-child(even) .experienceCard {
-    margin-left: 50px !important;
-  }
-
-  .jobTitle {
-    font-size: 1.2rem !important;
-  }
-
-  .companyName {
-    font-size: 0.95rem;
-  }
-
   .workPeriod {
-    font-size: 0.85rem;
-  }
-
-  .achievementItem {
-    gap: 8px;
-  }
-
-  .achievementContent {
-    font-size: 0.9rem;
-  }
-
-  .honorsTags {
-    .ant-tag {
-      padding: 4px 12px;
-      font-size: 0.85rem;
+    font-size: 14px;
+    .calendarIcon {
+      width: 12px;
+      height: 12px;
     }
+  }
+
+  .achievementIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .statValue {
+    font-size: 16px !important;
+  }
+  .statLabel {
+    font-size: 14px !important;
   }
 }

@@ -121,7 +121,11 @@ const Portfolio: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Row gutter={[60, 40]} align="middle">
+          <Row
+            gutter={[60, 40]}
+            align="middle"
+            className={`${styles.trasferRow} ${styles.portfolioRow}`}
+          >
             {/* 左边：项目图片 */}
             <Col xs={24} lg={12}>
               <motion.div
