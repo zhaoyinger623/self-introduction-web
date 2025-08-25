@@ -169,7 +169,7 @@ const Experience: React.FC = () => {
                   </Title>
                   <div className={styles.companyName}>
                     <MapPin className={styles.locationIcon} />
-                    招商银行·招引网络科技
+                    招商银行·招银网络科技
                   </div>
                   <div className={styles.workPeriod}>
                     <Calendar className={styles.calendarIcon} />
