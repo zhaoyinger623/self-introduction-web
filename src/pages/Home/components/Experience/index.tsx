@@ -1,95 +1,300 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase, Award, Star } from "lucide-react";
+import {
+  Briefcase,
+  Award,
+  Star,
+  Trophy,
+  Users,
+  Code,
+  Palette,
+  Target,
+  Calendar,
+  MapPin,
+  TrendingUp,
+  Zap,
+  Lightbulb,
+  CheckCircle,
+} from "lucide-react";
+import { Card, Row, Col, Typography, Space, Tag, Divider, Avatar } from "antd";
 import styles from "./index.module.less";
+
+const { Title, Paragraph, Text } = Typography;
 
 const Experience: React.FC = () => {
   return (
-    <section id="experience" className={`${styles.section} ${styles.bgLight}`}>
+    <section id="experience" className={styles.section}>
       <div className={styles.container}>
-        <motion.h2
-          className={styles.sectionTitle}
+        {/* 标题区域 */}
+        <motion.div
+          className={styles.headerSection}
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          工作经历
-        </motion.h2>
-        <div className={styles.timeline}>
+          <div className={styles.featureTag}>Experience</div>
+          <Title level={2} className={styles.sectionTitle}>
+            工作经历
+          </Title>
+          <Paragraph className={styles.sectionSubtitle}>
+            从校园到职场，从技术执行者到业务赋能者的成长历程
+          </Paragraph>
+        </motion.div>
+
+        {/* 工作经历时间线 */}
+        <div className={styles.experienceTimeline}>
+          {/* 喜马拉雅经历 */}
           <motion.div
             className={styles.timelineItem}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <div className={styles.timelineMarker}>
-              <Briefcase />
+              <Briefcase className={styles.markerIcon} />
             </div>
-            <div className={styles.timelineContent}>
-              <h3>高级前端开发工程师</h3>
-              <h4>某知名互联网公司</h4>
-              <p className={styles.timelineDate}>2022 - 至今</p>
-              <p>
-                负责公司核心产品的前端架构设计和开发，带领团队完成多个重要项目，推动前端技术栈升级。
-              </p>
-              <ul>
-                <li>重构了公司主要产品的前端架构，提升性能30%</li>
-                <li>建立了前端开发规范和最佳实践</li>
-                <li>指导初级开发人员，提升团队整体技术水平</li>
-              </ul>
-            </div>
+
+            <Card className={styles.experienceCard}>
+              <div className={styles.cardHeader}>
+                <div className={styles.companyInfo}>
+                  <Title level={3} className={styles.jobTitle}>
+                    前端技术负责人
+                  </Title>
+                  <div className={styles.companyName}>
+                    <MapPin className={styles.locationIcon} />
+                    喜马拉雅
+                  </div>
+                  <div className={styles.workPeriod}>
+                    <Calendar className={styles.calendarIcon} />
+                    2023年7月至今
+                  </div>
+                </div>
+                <div className={styles.companyLogo}>
+                  <Avatar size={64} className={styles.logoAvatar}>
+                    喜
+                  </Avatar>
+                </div>
+              </div>
+
+              <Divider className={styles.cardDivider} />
+
+              <div className={styles.roleDescription}>
+                <Title level={4} className={styles.roleTitle}>
+                  核心职责
+                </Title>
+                <Paragraph className={styles.roleText}>
+                  统筹前端团队流程与进度，主导战略级系统前端架构设计；落地前端 +
+                  AI 提效技术；
+                  不断突破能力边界承担起产品经理/设计师的职责，并拿到成果。
+                </Paragraph>
+              </div>
+
+              <div className={styles.keyAchievements}>
+                <Title level={4} className={styles.achievementsTitle}>
+                  关键成果
+                </Title>
+
+                <div className={styles.achievementItem}>
+                  <CheckCircle className={styles.achievementIcon} />
+                  <div className={styles.achievementContent}>
+                    <Text strong>战略系统架构：</Text>
+                    统筹前端侧流程进度，搭建 DSTE 系统（战略管理）与 HR
+                    工作台（人力资源管理），
+                    覆盖组织架构、人才全生命周期管理等核心模块，推动战略管理与人力资源系统的有机结合。
+                  </div>
+                </div>
+
+                <div className={styles.achievementItem}>
+                  <CheckCircle className={styles.achievementIcon} />
+                  <div className={styles.achievementContent}>
+                    <Text strong>低代码平台：</Text>
+                    主导飞块低代码平台研发，填补公司拖拽式低代码工具空白，上线后稳定运行
+                    16 个月， 支撑 400+ 应用、1300+
+                    页面搭建，页面开发时间从"天级"缩短至"小时级"，
+                    为公司节约至少200w人力成本。
+                  </div>
+                </div>
+
+                <div className={styles.achievementItem}>
+                  <CheckCircle className={styles.achievementIcon} />
+                  <div className={styles.achievementContent}>
+                    <Text strong>团队建设：</Text>
+                    积极组织复盘与沉淀，构建前端团队生态，推进前端知识分享机制，
+                    建立前端开发规范与组件库机制，带领团队支撑多项目全链路交付，
+                    系统首年故障率 &lt; 0.5%，团队研发效能提升 10%。
+                  </div>
+                </div>
+
+                <div className={styles.achievementItem}>
+                  <CheckCircle className={styles.achievementIcon} />
+                  <div className={styles.achievementContent}>
+                    <Text strong>跨职能闭环：</Text>
+                    承担 UI
+                    设计与产品方案设计，实现前端开发与设计、产品需求的无缝衔接，
+                    协同AI完成【产品原型→设计图→前端代码】的业务闭环，缩短项目交付周期。
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.honorsSection}>
+                <Title level={4} className={styles.honorsTitle}>
+                  荣誉成就
+                </Title>
+                <Space wrap className={styles.honorsTags}>
+                  <Tag color="gold" icon={<Trophy />}>
+                    2024年季度优秀员工
+                  </Tag>
+                  <Tag color="blue" icon={<Lightbulb />}>
+                    2024年年度AI创新大赛一等奖
+                  </Tag>
+                  <Tag color="green" icon={<TrendingUp />}>
+                    2025年晋升成功
+                  </Tag>
+                </Space>
+              </div>
+            </Card>
           </motion.div>
 
+          {/* 招商银行经历 */}
           <motion.div
             className={styles.timelineItem}
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className={styles.timelineMarker}>
-              <Award />
+              <Code className={styles.markerIcon} />
             </div>
-            <div className={styles.timelineContent}>
-              <h3>前端开发工程师</h3>
-              <h4>某科技创业公司</h4>
-              <p className={styles.timelineDate}>2020 - 2022</p>
-              <p>
-                参与公司产品的从0到1开发，负责前端技术选型和架构设计，积累了丰富的创业公司经验。
-              </p>
-              <ul>
-                <li>独立完成公司官网和后台管理系统的开发</li>
-                <li>优化了移动端用户体验，转化率提升25%</li>
-                <li>建立了完整的CI/CD流程</li>
-              </ul>
-            </div>
+
+            <Card className={styles.experienceCard}>
+              <div className={styles.cardHeader}>
+                <div className={styles.companyInfo}>
+                  <Title level={3} className={styles.jobTitle}>
+                    前端开发工程师
+                  </Title>
+                  <div className={styles.companyName}>
+                    <MapPin className={styles.locationIcon} />
+                    招商银行·招引网络科技
+                  </div>
+                  <div className={styles.workPeriod}>
+                    <Calendar className={styles.calendarIcon} />
+                    2021年7月 - 2023年7月
+                  </div>
+                </div>
+                <div className={styles.companyLogo}>
+                  <Avatar size={64} className={styles.logoAvatar}>
+                    招
+                  </Avatar>
+                </div>
+              </div>
+
+              <Divider className={styles.cardDivider} />
+
+              <div className={styles.roleDescription}>
+                <Title level={4} className={styles.roleTitle}>
+                  主要职责
+                </Title>
+                <Paragraph className={styles.roleText}>
+                  本人主要负责中间业务收入定价系统PC、移动端的前端重构工作，参与后端日常开发工作。
+                  同时担任产品设计师，负责产品管理系统项目管理。
+                </Paragraph>
+              </div>
+
+              <div className={styles.honorsSection}>
+                <Title level={4} className={styles.honorsTitle}>
+                  荣誉成就
+                </Title>
+                <Space wrap className={styles.honorsTags}>
+                  <Tag color="green" icon={<Star />}>
+                    优秀新员工
+                  </Tag>
+                  <Tag color="blue" icon={<Code />}>
+                    招商银行前端编程比赛第一名
+                  </Tag>
+                  <Tag color="purple" icon={<Award />}>
+                    管理信息开发团队创新大赛多个一等奖
+                  </Tag>
+                </Space>
+              </div>
+            </Card>
           </motion.div>
 
+          {/* 教育经历 */}
           <motion.div
             className={styles.timelineItem}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className={styles.timelineMarker}>
-              <Star />
+              <Star className={styles.markerIcon} />
             </div>
-            <div className={styles.timelineContent}>
-              <h3>前端开发实习生</h3>
-              <h4>某传统企业</h4>
-              <p className={styles.timelineDate}>2019 - 2020</p>
-              <p>
-                开始前端开发之旅，学习基础技术，参与企业内部系统的维护和优化。
-              </p>
-              <ul>
-                <li>学习了HTML、CSS、JavaScript基础</li>
-                <li>参与企业官网的改版项目</li>
-                <li>掌握了前端工程化的基本概念</li>
-              </ul>
-            </div>
+
+            <Card className={styles.experienceCard}>
+              <div className={styles.cardHeader}>
+                <div className={styles.companyInfo}>
+                  <Title level={3} className={styles.jobTitle}>
+                    计算机科学与技术
+                  </Title>
+                  <div className={styles.companyName}>
+                    <MapPin className={styles.locationIcon} />
+                    成都理工大学（双一流大学）
+                  </div>
+                  <div className={styles.workPeriod}>
+                    <Calendar className={styles.calendarIcon} />
+                    2017年9月 - 2021年6月
+                  </div>
+                </div>
+                <div className={styles.companyLogo}>
+                  <Avatar size={64} className={styles.logoAvatar}>
+                    理
+                  </Avatar>
+                </div>
+              </div>
+
+              <Divider className={styles.cardDivider} />
+
+              <div className={styles.educationStats}>
+                <Row gutter={[16, 16]} className={styles.statsRow}>
+                  <Col span={12}>
+                    <div className={styles.statItem}>
+                      <div className={styles.statValue}>3.5/5.0</div>
+                      <div className={styles.statLabel}>GPA</div>
+                    </div>
+                  </Col>
+                  <Col span={12}>
+                    <div className={styles.statItem}>
+                      <div className={styles.statValue}>前10%</div>
+                      <div className={styles.statLabel}>专业排名</div>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+
+              <div className={styles.honorsSection}>
+                <Title level={4} className={styles.honorsTitle}>
+                  荣誉成就
+                </Title>
+                <Space wrap className={styles.honorsTags}>
+                  <Tag color="gold" icon={<Trophy />}>
+                    国家优秀奖学金
+                  </Tag>
+                  <Tag color="blue" icon={<Users />}>
+                    校级优秀干部
+                  </Tag>
+                  <Tag color="green" icon={<Star />}>
+                    校级优秀毕业生
+                  </Tag>
+                  <Tag color="purple" icon={<Award />}>
+                    院级优秀学生
+                  </Tag>
+                </Space>
+              </div>
+            </Card>
           </motion.div>
         </div>
       </div>

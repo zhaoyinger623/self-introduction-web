@@ -1,22 +1,60 @@
 .section {
   padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
-.sectionTitle {
-  font-size: 24px;
-  font-weight: bolder;
-  margin-bottom: 12px !important;
-  line-height: 1.2;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// 标题区域样式
+.headerSection {
   text-align: center;
+  margin-bottom: 80px;
 }
-.timeline {
+
+.featureTag {
+  display: inline-block;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sectionTitle {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin-bottom: 20px !important;
+  background: linear-gradient(135deg, #1e293b, #475569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem !important;
+  color: #64748b !important;
+  max-width: 600px;
+  margin: 0 auto !important;
+  line-height: 1.6;
+}
+
+// 时间线样式
+.experienceTimeline {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
-.timeline::before {
+.experienceTimeline::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -26,39 +64,26 @@
   background: linear-gradient(to bottom, #6366f1, #8b5cf6, #ec4899);
   transform: translateX(-50%);
   box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-}
-
-.timeline::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-  z-index: 2;
+  z-index: 1;
 }
 
 .timelineItem {
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 60px;
   display: flex;
   align-items: center;
-}
 
-.timelineItem:nth-child(even) {
-  flex-direction: row-reverse;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .timelineMarker {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 4rem;
-  height: 4rem;
+  width: 60px;
+  height: 60px;
   background: white;
   border: 4px solid #6366f1;
   border-radius: 50%;
@@ -69,194 +94,368 @@
   z-index: 3;
   box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
   transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4);
+    border-color: #8b5cf6;
+  }
 }
 
-.timelineItem:hover .timelineMarker {
-  transform: translateX(-50%) scale(1.1);
-  box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4);
-  border-color: #8b5cf6;
+.markerIcon {
+  width: 24px;
+  height: 24px;
 }
 
-.timelineContent {
+// 经历卡片样式
+.experienceCard {
   width: 45%;
-  padding: 2.5rem;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  position: relative;
-  border: 1px solid rgba(99, 102, 241, 0.1);
+  margin-left: 55%;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(99, 102, 241, 0.1) !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .ant-card-body {
+    padding: 30px;
+  }
 }
 
-.timelineContent::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-  border-radius: 24px 24px 0 0;
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.timelineItem:hover .timelineContent::before {
-  transform: scaleX(1);
-}
-
-.timelineItem:nth-child(odd) .timelineContent {
+.timelineItem:nth-child(even) .experienceCard {
+  margin-left: 0;
   margin-right: 55%;
 }
 
-.timelineItem:nth-child(even) .timelineContent {
-  margin-left: 55%;
+// 卡片头部样式
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
-.timelineContent:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+.companyInfo {
+  flex: 1;
 }
 
-.timelineContent h3 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  color: #1e293b;
+.jobTitle {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin-bottom: 12px !important;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.timelineContent h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: #6366f1;
+.companyName {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.timelineContent h4::before {
-  content: "🏢";
-  font-size: 1rem;
-}
-
-.timelineDate {
-  font-size: 1rem;
-  color: #64748b;
-  margin-bottom: 1.25rem;
+  gap: 8px;
+  font-size: 1.1rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 20px;
-  display: inline-block;
-  border: 1px solid rgba(99, 102, 241, 0.2);
-}
-
-.timelineContent p {
-  color: #64748b;
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-  font-weight: 500;
-}
-
-.timelineContent ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.timelineContent li {
-  color: #64748b;
-  margin-bottom: 0.75rem;
-  padding-left: 2rem;
-  position: relative;
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-.timelineContent li::before {
-  content: "▸";
   color: #6366f1;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
-/* 响应式设计 */
+.locationIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.workPeriod {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.calendarIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.companyLogo {
+  flex-shrink: 0;
+}
+
+.logoAvatar {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+}
+
+// 分割线样式
+.cardDivider {
+  margin: 20px 0 !important;
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+// 角色描述样式
+.roleDescription {
+  margin-bottom: 25px;
+}
+
+.roleTitle {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 12px !important;
+}
+
+.roleText {
+  color: #6b7280 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0 !important;
+}
+
+// 关键成果样式
+.keyAchievements {
+  margin-bottom: 25px;
+}
+
+.achievementsTitle {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 16px !important;
+}
+
+.achievementItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.achievementIcon {
+  width: 20px;
+  height: 20px;
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.achievementContent {
+  flex: 1;
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+// 荣誉成就样式
+.honorsSection {
+  margin-top: 25px;
+}
+
+.honorsTitle {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 16px !important;
+}
+
+.honorsTags {
+  .ant-tag {
+    margin: 4px;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// 教育统计样式
+.educationStats {
+  margin-bottom: 25px;
+}
+
+.statsRow {
+  .ant-col {
+    text-align: center;
+  }
+}
+
+.statItem {
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+  }
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+// 响应式设计
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 3rem;
+  .section {
+    padding: 60px 0;
   }
 
-  .timeline::after {
-    left: 3rem;
+  .container {
+    padding: 0 16px;
+  }
+
+  .headerSection {
+    margin-bottom: 60px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem !important;
+  }
+
+  .experienceTimeline::before {
+    left: 30px;
   }
 
   .timelineMarker {
-    left: 3rem;
+    left: 30px;
     transform: translateX(-50%);
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 50px;
+    height: 50px;
+
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
   }
 
-  .timelineItem:hover .timelineMarker {
-    transform: translateX(-50%) scale(1.1);
+  .experienceCard {
+    width: calc(100% - 60px);
+    margin-left: 60px !important;
+    margin-right: 0 !important;
+
+    .ant-card-body {
+      padding: 20px;
+    }
   }
 
-  .timelineContent {
-    width: calc(100% - 6rem);
-    margin-left: 6rem !important;
+  .timelineItem:nth-child(even) .experienceCard {
+    margin-left: 60px !important;
     margin-right: 0 !important;
   }
 
-  .timelineContent h3 {
-    font-size: 1.4rem;
+  .cardHeader {
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .timelineContent h4 {
-    font-size: 1.1rem;
+  .companyLogo {
+    align-self: center;
   }
 
-  .timelineContent {
-    padding: 2rem;
+  .jobTitle {
+    font-size: 1.3rem !important;
+  }
+
+  .companyName {
+    font-size: 1rem;
+  }
+
+  .workPeriod {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-  .timeline::before {
-    left: 2.5rem;
+  .section {
+    padding: 40px 0;
   }
 
-  .timeline::after {
-    left: 2.5rem;
+  .headerSection {
+    margin-bottom: 40px;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem !important;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem !important;
+  }
+
+  .experienceTimeline::before {
+    left: 25px;
   }
 
   .timelineMarker {
-    left: 2.5rem;
-    width: 3rem;
-    height: 3rem;
+    left: 25px;
+    width: 45px;
+    height: 45px;
   }
 
-  .timelineContent {
-    width: calc(100% - 5rem);
-    margin-left: 5rem !important;
-    padding: 1.5rem;
+  .experienceCard {
+    width: calc(100% - 50px);
+    margin-left: 50px !important;
+
+    .ant-card-body {
+      padding: 16px;
+    }
   }
 
-  .timelineContent h3 {
-    font-size: 1.3rem;
+  .timelineItem:nth-child(even) .experienceCard {
+    margin-left: 50px !important;
   }
 
-  .timelineContent h4 {
-    font-size: 1rem;
+  .jobTitle {
+    font-size: 1.2rem !important;
   }
 
-  .timelineDate {
+  .companyName {
+    font-size: 0.95rem;
+  }
+
+  .workPeriod {
+    font-size: 0.85rem;
+  }
+
+  .achievementItem {
+    gap: 8px;
+  }
+
+  .achievementContent {
     font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
+  }
+
+  .honorsTags {
+    .ant-tag {
+      padding: 4px 12px;
+      font-size: 0.85rem;
+    }
   }
 }
