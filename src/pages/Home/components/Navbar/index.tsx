@@ -4,6 +4,13 @@ import { Rabbit } from "lucide-react";
 import styles from "./index.module.less";
 
 const Navbar: React.FC = () => {
+  const handleClick = (id: string) => () => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <motion.div
@@ -21,11 +28,9 @@ const Navbar: React.FC = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <a href="#about">关于我</a>
-        <a href="#skills">技能</a>
-        <a href="#portfolio">作品</a>
-        <a href="#experience">经历</a>
-        <a href="#interests">兴趣</a>
+        <div onClick={handleClick("about")}>关于我</div>
+        <div onClick={handleClick("portfolio")}>作品</div>
+        <div onClick={handleClick("experience")}>工作经历</div>
       </motion.div>
     </nav>
   );

@@ -6,41 +6,24 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  // padding: 0 20px;
 }
 
 // 标题区域样式
 .headerSection {
   text-align: center;
-  margin-bottom: 80px;
-}
-
-.featureTag {
-  display: inline-block;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 40px;
 }
 
 .sectionTitle {
-  font-size: 2.5rem !important;
-  font-weight: 700 !important;
+  font-size: 24px !important;
+  font-weight: bolder !important;
   color: #1e293b !important;
   margin-bottom: 20px !important;
-  background: linear-gradient(135deg, #1e293b, #475569);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .sectionSubtitle {
-  font-size: 1.1rem !important;
+  font-size: 14px !important;
   color: #64748b !important;
   max-width: 600px;
   margin: 0 auto !important;
@@ -50,7 +33,7 @@
 // 时间线样式
 .experienceTimeline {
   position: relative;
-  max-width: 1000px;
+  // max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -82,8 +65,8 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background: white;
   border: 4px solid #6366f1;
   border-radius: 50%;
@@ -103,13 +86,13 @@
 }
 
 .markerIcon {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
 }
 
 // 经历卡片样式
 .experienceCard {
-  width: 45%;
+  width: 50%;
   margin-left: 55%;
   border-radius: 20px !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
@@ -137,7 +120,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .companyInfo {
@@ -145,38 +128,33 @@
 }
 
 .jobTitle {
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
+  font-size: 16px !important;
+  font-weight: bolder !important;
   color: #1e293b !important;
   margin-bottom: 12px !important;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .companyName {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #6366f1;
+  font-size: 14px;
   margin-bottom: 8px;
+  color: #666;
 }
 
 .locationIcon {
   width: 16px;
   height: 16px;
+  color: #666;
 }
 
 .workPeriod {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.95rem;
-  color: #64748b;
-  font-weight: 500;
+  font-size: 14px;
+  color: #666;
 }
 
 .calendarIcon {
@@ -186,35 +164,30 @@
 
 .companyLogo {
   flex-shrink: 0;
-}
-
-.logoAvatar {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
-  color: white !important;
-  font-weight: 700 !important;
-  font-size: 24px !important;
+  img {
+    width: 50px;
+  }
 }
 
 // 分割线样式
 .cardDivider {
-  margin: 20px 0 !important;
+  margin: 16px 0 !important;
   border-color: rgba(99, 102, 241, 0.2) !important;
 }
 
 // 角色描述样式
 .roleDescription {
-  margin-bottom: 25px;
+  margin-bottom: 16px;
 }
 
 .roleTitle {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  color: #374151 !important;
-  margin-bottom: 12px !important;
+  font-size: 14px !important;
+  font-weight: bolder !important;
+  margin-bottom: 8px !important;
 }
 
 .roleText {
-  color: #6b7280 !important;
+  color: #666 !important;
   line-height: 1.6 !important;
   margin-bottom: 0 !important;
 }
@@ -225,17 +198,16 @@
 }
 
 .achievementsTitle {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  color: #374151 !important;
-  margin-bottom: 16px !important;
+  font-size: 14px !important;
+  font-weight: bolder !important;
+  margin-bottom: 8px !important;
 }
 
 .achievementItem {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 
   &:last-child {
     margin-bottom: 0;
@@ -252,9 +224,9 @@
 
 .achievementContent {
   flex: 1;
-  color: #6b7280;
+  color: #666;
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: 14px;
 }
 
 // 荣誉成就样式
@@ -263,25 +235,18 @@
 }
 
 .honorsTitle {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  color: #374151 !important;
-  margin-bottom: 16px !important;
+  font-size: 14px !important;
+  font-weight: bolder !important;
+  margin-bottom: 12px !important;
 }
 
 .honorsTags {
-  .ant-tag {
-    margin: 4px;
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-weight: 500;
-    border: none;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
+  .tagItem {
+    margin-right: 8px;
+    margin-bottom: 8px;
   }
 }
 
@@ -333,7 +298,7 @@
   }
 
   .headerSection {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .sectionTitle {

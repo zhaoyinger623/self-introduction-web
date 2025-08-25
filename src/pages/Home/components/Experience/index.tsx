@@ -2,22 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Briefcase,
-  Award,
   Star,
-  Trophy,
-  Users,
   Code,
-  Palette,
-  Target,
   Calendar,
   MapPin,
-  TrendingUp,
-  Zap,
-  Lightbulb,
   CheckCircle,
 } from "lucide-react";
 import { Card, Row, Col, Typography, Space, Tag, Divider, Avatar } from "antd";
 import styles from "./index.module.less";
+import ximalayaLogo from "../../../../assets/ximalogo.png";
+import zhaoyinLogo from "../../../../assets/cmbbank.png";
+import chengduLogo from "../../../../assets/cdut.png";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -33,7 +28,6 @@ const Experience: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className={styles.featureTag}>Experience</div>
           <Title level={2} className={styles.sectionTitle}>
             工作经历
           </Title>
@@ -72,9 +66,7 @@ const Experience: React.FC = () => {
                   </div>
                 </div>
                 <div className={styles.companyLogo}>
-                  <Avatar size={64} className={styles.logoAvatar}>
-                    喜
-                  </Avatar>
+                  <img src={ximalayaLogo} alt="喜马拉雅" />
                 </div>
               </div>
 
@@ -143,13 +135,13 @@ const Experience: React.FC = () => {
                   荣誉成就
                 </Title>
                 <Space wrap className={styles.honorsTags}>
-                  <Tag color="gold" icon={<Trophy />}>
+                  <Tag color="gold" className={styles.tagItem}>
                     2024年季度优秀员工
                   </Tag>
-                  <Tag color="blue" icon={<Lightbulb />}>
+                  <Tag color="blue" className={styles.tagItem}>
                     2024年年度AI创新大赛一等奖
                   </Tag>
-                  <Tag color="green" icon={<TrendingUp />}>
+                  <Tag color="green" className={styles.tagItem}>
                     2025年晋升成功
                   </Tag>
                 </Space>
@@ -185,9 +177,7 @@ const Experience: React.FC = () => {
                   </div>
                 </div>
                 <div className={styles.companyLogo}>
-                  <Avatar size={64} className={styles.logoAvatar}>
-                    招
-                  </Avatar>
+                  <img src={zhaoyinLogo} alt="招商银行" />
                 </div>
               </div>
 
@@ -207,17 +197,17 @@ const Experience: React.FC = () => {
                 <Title level={4} className={styles.honorsTitle}>
                   荣誉成就
                 </Title>
-                <Space wrap className={styles.honorsTags}>
-                  <Tag color="green" icon={<Star />}>
+                <div className={styles.honorsTags}>
+                  <Tag color="green" className={styles.tagItem}>
                     优秀新员工
                   </Tag>
-                  <Tag color="blue" icon={<Code />}>
-                    招商银行前端编程比赛第一名
+                  <Tag color="blue" className={styles.tagItem}>
+                    前端编程比赛第一名
                   </Tag>
-                  <Tag color="purple" icon={<Award />}>
+                  <Tag color="purple" className={styles.tagItem}>
                     管理信息开发团队创新大赛多个一等奖
                   </Tag>
-                </Space>
+                </div>
               </div>
             </Card>
           </motion.div>
@@ -250,9 +240,7 @@ const Experience: React.FC = () => {
                   </div>
                 </div>
                 <div className={styles.companyLogo}>
-                  <Avatar size={64} className={styles.logoAvatar}>
-                    理
-                  </Avatar>
+                  <img src={chengduLogo} alt="成都理工大学" />
                 </div>
               </div>
 
@@ -279,20 +267,20 @@ const Experience: React.FC = () => {
                 <Title level={4} className={styles.honorsTitle}>
                   荣誉成就
                 </Title>
-                <Space wrap className={styles.honorsTags}>
-                  <Tag color="gold" icon={<Trophy />}>
+                <div className={styles.honorsTags}>
+                  <Tag color="gold" className={styles.tagItem}>
                     国家优秀奖学金
                   </Tag>
-                  <Tag color="blue" icon={<Users />}>
+                  <Tag color="blue" className={styles.tagItem}>
                     校级优秀干部
                   </Tag>
-                  <Tag color="green" icon={<Star />}>
+                  <Tag color="green" className={styles.tagItem}>
                     校级优秀毕业生
                   </Tag>
-                  <Tag color="purple" icon={<Award />}>
+                  <Tag color="purple" className={styles.tagItem}>
                     院级优秀学生
                   </Tag>
-                </Space>
+                </div>
               </div>
             </Card>
           </motion.div>

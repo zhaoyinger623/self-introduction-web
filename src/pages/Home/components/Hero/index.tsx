@@ -25,7 +25,19 @@ const Hero: React.FC = () => {
           <div className={styles.heroDescription}>
             热爱设计，追求代码与艺术的完美结合
           </div>
-          <Button size="large" className={styles.ctaButton}>
+          <Button
+            size="large"
+            className={styles.ctaButton}
+            onClick={() => {
+              const aboutSection = document.getElementById("about");
+              if (aboutSection) {
+                aboutSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
             开始了解
           </Button>
         </motion.div>
