@@ -41,7 +41,7 @@ const Portfolio: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
           <Row gutter={[60, 40]} align="middle">
             {/* 左边：项目描述 */}
@@ -119,7 +119,7 @@ const Portfolio: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <Row
             gutter={[60, 40]}
@@ -183,7 +183,7 @@ const Portfolio: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           <Row gutter={[60, 40]} align="middle">
             {/* 左边：项目描述 */}
