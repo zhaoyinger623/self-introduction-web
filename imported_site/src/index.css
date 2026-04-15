@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Inter", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #1A1A1A;
+  --color-secondary: #4A4A4A;
+  --color-spring-green: #2D5A27;
+  --color-spring-pink: #FFB7C5;
+  --color-spring-yellow: #FFF4BD;
+  --color-spring-mint: #98FFD9;
+  --color-cream: #FDFCF8;
+  --color-deep-forest: #0F2010;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-cream text-primary antialiased selection:bg-spring-pink selection:text-deep-forest;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif text-primary tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-butterfly {
+    animation: butterfly-path 15s linear infinite;
+  }
+}
+
+@keyframes butterfly-path {
+  0% { transform: translate(-10vw, 20vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  25% { transform: translate(25vw, 10vh) rotate(15deg); }
+  50% { transform: translate(50vw, 30vh) rotate(-10deg); }
+  75% { transform: translate(75vw, 15vh) rotate(20deg); }
+  90% { opacity: 1; }
+  100% { transform: translate(110vw, 25vh) rotate(0deg); opacity: 0; }
+}
+
+@keyframes flap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.3); }
+}
+
+.butterfly-wings {
+  animation: flap 0.2s ease-in-out infinite;
+}

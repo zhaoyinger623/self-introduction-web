@@ -1,22 +1,23 @@
-import React from "react";
 import { motion } from "framer-motion";
 import styles from "./index.module.less";
+import { transitionSilky } from "../../../../motion/config";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <motion.div
-          className={styles.footerContent}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p>&copy; 赵莹玥 前端开发工程师. 用代码创造美好体验.</p>
-        </motion.div>
+    <motion.footer
+      className={styles.footer}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={transitionSilky}
+    >
+      <div className={styles.inner}>
+        <div className={styles.row}>
+          <p className={styles.copy}>
+            © 2026 Zhao Yingyue. Crafted with Art & Code.
+          </p>
+        </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

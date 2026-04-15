@@ -1,0 +1,157 @@
+/**
+ * 首屏 Hero + Stats 与参考图2对齐：底圆角大图、白底指标区、凹槽、底部分隔虚线
+ */
+.landingStack {
+  /* 容器尺寸与内边距沿用全局 .home-landing-inner，此处只覆盖子块视觉 */
+
+  /* —— Hero 媒体区：仅底部大圆角，更通透阴影 —— */
+  :global(.home-hero-media) {
+    border-radius: 0 0 3rem 3rem;
+    box-shadow: 0 20px 56px rgba(15, 23, 42, 0.08);
+    min-height: 68vh;
+
+    @media (min-width: 768px) {
+      min-height: 76vh;
+      border-radius: 0 0 3.25rem 3.25rem;
+    }
+  }
+
+  :global(.home-hero-overlay) {
+    border-radius: 0 0 3rem 3rem;
+
+    @media (min-width: 768px) {
+      border-radius: 0 0 3.25rem 3.25rem;
+    }
+
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.18) 50%,
+      rgba(0, 0, 0, 0.32) 100%
+    );
+  }
+
+  :global(.home-hero-inner) {
+    min-height: min(68vh, 48rem);
+    padding: 4.5rem 1.25rem 5rem;
+
+    @media (min-width: 768px) {
+      min-height: min(76vh, 52rem);
+      padding: 5rem 2rem 5.5rem;
+    }
+  }
+
+  /* —— Stats 与 Hero 衔接：上叠、白底、大上圆角 —— */
+  :global(.stats-overlap-wrap) {
+    margin-top: -6.25rem;
+    padding: 0 0.75rem 2.75rem;
+
+    @media (min-width: 768px) {
+      margin-top: -7.5rem;
+      padding: 0 1.25rem 3.25rem;
+    }
+  }
+
+  :global(.stats-bar-card) {
+    background: #ffffff;
+    /* 顶角圆角略加大，与半圆舌片更一体 */
+    border-radius: 3.25rem 3.25rem 1.65rem 1.65rem;
+    box-shadow: none;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 4.25rem 1.5rem 2.25rem;
+    overflow: visible;
+
+    @media (min-width: 768px) {
+      padding: 4.75rem 2.5rem 2.75rem;
+      border-radius: 3.5rem 3.5rem 1.85rem 1.85rem;
+    }
+  }
+
+  /* 凹槽：窄舌片 + 沿弧大字（viewBox 宽 168） */
+  :global(.stats-scroll-notch) {
+    transform: translate(-50%, -54%);
+    width: 13.25rem;
+    aspect-ratio: 168 / 114;
+    height: auto;
+    color: #9ca3af;
+  }
+
+  :global(.stats-scroll-notch-caret) {
+    color: #94a3b8;
+  }
+
+  /* 指标行：与参考类似的疏朗分布 */
+  :global(.stats-grid-ref) {
+    justify-content: space-evenly;
+    column-gap: 0.75rem;
+    row-gap: 2rem;
+  }
+
+  :global(.stats-grid-ref > .stats-flip-wrap) {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 6.5rem;
+    max-width: 11rem;
+  }
+
+  @media (min-width: 1100px) {
+    :global(.stats-grid-ref) {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      column-gap: 1.25rem;
+    }
+
+    :global(.stats-grid-ref > .stats-flip-wrap) {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: none;
+    }
+  }
+
+  :global(.stats-flip-root),
+  :global(.stats-flip-inner) {
+    min-height: 9.25rem;
+  }
+
+  :global(.stats-value) {
+    font-size: clamp(1.85rem, 3.6vw, 2.65rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #0f172a;
+    margin-bottom: 0.45rem;
+  }
+
+  :global(.stats-caption-primary) {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 0.2rem;
+  }
+
+  :global(.stats-caption-secondary) {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  :global(.stats-detail-body) {
+    font-size: 0.78rem;
+    color: #64748b;
+  }
+
+  /* 底部分隔：虚线（参考图2） */
+  :global(.stats-bar-rule) {
+    height: 0;
+    margin: 2.25rem 1rem 0;
+    max-width: none;
+    background: none;
+    border: 0;
+    border-top: 1px dashed #e2e8f0;
+  }
+
+  @media (min-width: 768px) {
+    :global(.stats-bar-rule) {
+      margin: 2.5rem 2rem 0;
+    }
+  }
+}

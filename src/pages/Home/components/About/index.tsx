@@ -1,297 +1,120 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Trophy, Users, Code, Shield, Zap, Award } from "lucide-react";
-import {
-  Card,
-  Row,
-  Col,
-  Statistic,
-  Divider,
-  Typography,
-  Space,
-  Tag,
-  Button,
-} from "antd";
 import styles from "./index.module.less";
+import {
+  fadeUpItem,
+  staggerContainer,
+  transitionSilky,
+  viewportSection,
+} from "../../../../motion/config";
 
-const { Title, Paragraph, Text } = Typography;
+const highlights = [
+  "技术方案与需求价值对齐，确保每次投入可衡量",
+  "重视跨团队协作，降低沟通摩擦与返工成本",
+  "以稳定性、性能和体验三维度驱动长期收益",
+];
+
+const capabilityCards = [
+  {
+    title: "业务洞察",
+    desc: "快速识别核心场景与关键指标，用可执行方案支撑业务目标。",
+  },
+  {
+    title: "系统设计",
+    desc: "兼顾扩展性与维护成本，构建可复用、可迭代的前端架构。",
+  },
+  {
+    title: "交付质量",
+    desc: "通过规范、评审与监控机制，持续保障上线稳定与响应效率。",
+  },
+  {
+    title: "团队协同",
+    desc: "在产品、设计、研发之间建立清晰协作节奏，提升整体执行力。",
+  },
+];
 
 const About: React.FC = () => {
   return (
-    <section id="about" className={styles.section}>
+    <section id="about" className={`about-section ${styles.section}`}>
       <div className={styles.container}>
-        {/* 顶部标题区域 */}
-        <motion.div
-          className={styles.headerSection}
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className={styles.featureTag}>工作成果</div>
-          <Title level={3} className={styles.evaluationTitle}>
-            突破能力边界，实现角色转型
-          </Title>
-          {/* <Divider /> */}
-          <Paragraph className={styles.evaluationText}>
-            在各项目中，以{" "}
-            <Text strong className={styles.highlightText}>
-              "技术 + 设计 + 产品"
-            </Text>{" "}
-            三重角色推动核心功能突破瓶颈， 验证了从{" "}
-            <Text strong className={styles.highlightText}>
-              "技术执行者"
-            </Text>{" "}
-            到{" "}
-            <Text strong className={styles.highlightText}>
-              "业务赋能者"
-            </Text>{" "}
-            的转型能力。
-          </Paragraph>
-          <Paragraph className={styles.evaluationText}>
-            擅长跨部门协作与团队管理，秉持{" "}
-            <Text strong className={styles.highlightText}>
-              "求实进取、主动担责"
-            </Text>{" "}
-            的理念，
-            持续深耕前端技术与业务结合，致力于成为兼具专业深度与综合能力的前端技术负责人。
-          </Paragraph>
-        </motion.div>
+        <div className="about-main-grid">
+          <motion.div
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={viewportSection}
+            transition={{ ...transitionSilky, duration: 0.82 }}
+            className="about-photo-group"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=1200"
+              alt="女性登山者眺望山景"
+              className="about-photo about-photo-main"
+              referrerPolicy="no-referrer"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&q=80&w=900"
+              alt="专业工作场景"
+              className="about-photo about-photo-float"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
 
-        {/* 核心能力卡片 */}
-        <motion.div
-          className={styles.featuresSection}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <Row gutter={[32, 32]} justify="center">
-            {/* 开发经验卡片 */}
-            <Col xs={24} sm={12} lg={8}>
-              <Card className={styles.featureCard}>
-                <div className={styles.cardIconWrapper}>
-                  <Code className={styles.cardIcon} />
-                </div>
-                <Title level={4} className={styles.cardTitle}>
-                  开发经验
-                </Title>
-                <Paragraph className={styles.cardDescription}>
-                  拥有{" "}
-                  <Text strong className={styles.highlight}>
-                    4年+
-                  </Text>{" "}
-                  前端开发经验，
-                  从技术开发进阶至技术负责人，具备系统架构设计与团队管理能力
-                </Paragraph>
-                {/* <div className={styles.cardStats}>
-                  <Statistic
-                    value={4}
-                    suffix="年+"
-                    valueStyle={{
-                      color: "#7f48e1",
-                      fontSize: "24px",
-                      fontWeight: "bolder",
-                    }}
-                  />
-                </div> */}
-              </Card>
-            </Col>
+          <motion.div
+            initial={{ opacity: 0, x: 32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={viewportSection}
+            transition={{ ...transitionSilky, duration: 0.82, delay: 0.08 }}
+            className="about-copy"
+          >
+            <span className="about-eyebrow">Why Me</span>
+            <h2 className="about-title">突破能力边界，实现角色转型</h2>
+            <p className="about-lead">
+              在项目实践中，我以「技术 + 设计 + 产品」三重角色推进核心功能，
+              让复杂方案可落地、可协作、可持续。目标不仅是完成开发，而是让每次交付都能转化为业务价值。
+            </p>
+            <ul className="about-checklist">
+              {highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <a href="#portfolio" className="about-cta">
+              查看核心项目
+            </a>
+          </motion.div>
+        </div>
 
-            {/* 项目经验卡片 */}
-            <Col xs={24} sm={12} lg={8}>
-              <Card className={styles.featureCard}>
-                <div className={styles.cardIconWrapper}>
-                  <Trophy className={styles.cardIcon} />
-                </div>
-                <Title level={4} className={styles.cardTitle}>
-                  项目经验
-                </Title>
-                <Paragraph className={styles.cardDescription}>
-                  主导过{" "}
-                  <Text strong className={styles.highlight}>
-                    4个
-                  </Text>{" "}
-                  大型项目， 以"技术+设计+产品"三重角色推动核心功能突破瓶颈
-                </Paragraph>
-                {/* <div className={styles.cardStats}>
-                  <Statistic
-                    value={4}
-                    suffix="个"
-                    valueStyle={{
-                      color: "#7f48e1",
-                      fontSize: "24px",
-                      fontWeight: "bolder",
-                    }}
-                  />
-                </div> */}
-              </Card>
-            </Col>
-
-            {/* 团队管理卡片 */}
-            <Col xs={24} sm={12} lg={8}>
-              <Card className={styles.featureCard}>
-                <div className={styles.cardIconWrapper}>
-                  <Users className={styles.cardIcon} />
-                </div>
-                <Title level={4} className={styles.cardTitle}>
-                  团队管理
-                </Title>
-                <Paragraph className={styles.cardDescription}>
-                  率领前端团队人效提升{" "}
-                  <Text strong className={styles.highlight}>
-                    &gt;10%
-                  </Text>
-                  ， 带教的校招生均能独立承担中高难度任务
-                </Paragraph>
-                {/* <div className={styles.cardStats}>
-                  <Statistic
-                    prefix=">"
-                    value={10}
-                    suffix="%"
-                    valueStyle={{
-                      color: "#7f48e1",
-                      fontSize: "24px",
-                      fontWeight: "bolder",
-                    }}
-                  />
-                </div> */}
-              </Card>
-            </Col>
-
-            {/* 技术能力卡片 */}
-            <Col xs={24} sm={12} lg={8}>
-              <Card className={styles.featureCard}>
-                <div className={styles.cardIconWrapper}>
-                  <Zap className={styles.cardIcon} />
-                </div>
-                <Title level={4} className={styles.cardTitle}>
-                  组件封装
-                </Title>
-                <Paragraph className={styles.cardDescription}>
-                  封装高可复用组件{" "}
-                  <Text strong className={styles.highlight}>
-                    30+个
-                  </Text>
-                  ， 做到组件高可复用性，提高开发效率
-                </Paragraph>
-                {/* <div className={styles.cardStats}>
-                  <Statistic
-                    value={30}
-                    suffix="+个"
-                    valueStyle={{
-                      color: "#7f48e1",
-                      fontSize: "24px",
-                      fontWeight: "bolder",
-                    }}
-                  />
-                </div> */}
-              </Card>
-            </Col>
-
-            {/* 系统稳定性卡片 */}
-            <Col xs={24} sm={12} lg={8}>
-              <Card className={styles.featureCard}>
-                <div className={styles.cardIconWrapper}>
-                  <Shield className={styles.cardIcon} />
-                </div>
-                <Title level={4} className={styles.cardTitle}>
-                  系统故障率
-                </Title>
-                <Paragraph className={styles.cardDescription}>
-                  系统故障率控制在{" "}
-                  <Text strong className={styles.highlight}>
-                    &lt;0.5%
-                  </Text>{" "}
-                  ， 确保业务系统的稳定性和可靠性
-                </Paragraph>
-                {/* <div className={styles.cardStats}>
-                  <Statistic
-                    prefix="<"
-                    value={0.5}
-                    suffix="%"
-                    precision={1}
-                    valueStyle={{
-                      color: "#7f48e1",
-                      fontSize: "24px",
-                      fontWeight: "bolder",
-                    }}
-                  />
-                </div> */}
-              </Card>
-            </Col>
-
-            {/* 综合能力卡片 */}
-            <Col xs={24} sm={12} lg={8}>
-              <Card className={styles.featureCard}>
-                <div className={styles.cardIconWrapper}>
-                  <Award className={styles.cardIcon} />
-                </div>
-                <Title level={4} className={styles.cardTitle}>
-                  综合能力
-                </Title>
-                <Paragraph className={styles.cardDescription}>
-                  具备{" "}
-                  <Text strong className={styles.highlight}>
-                    全链路
-                  </Text>{" "}
-                  能力，
-                  从架构设计到产品落地，致力于成为兼具专业深度与综合能力的技术负责人
-                </Paragraph>
-                {/* <div className={styles.cardStats}>
-                  <Statistic
-                    value={3}
-                    suffix="个角色"
-                    valueStyle={{
-                      color: "#7f48e1",
-                      fontSize: "24px",
-                      fontWeight: "bolder",
-                    }}
-                  />
-                </div> */}
-              </Card>
-            </Col>
-          </Row>
-        </motion.div>
-
-        {/* 技能标签 */}
-        <motion.div
-          className={styles.skillsSection}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <Title level={4} className={styles.skillsTitle}>
-            核心技能
-          </Title>
-          <Space size={[8, 16]} wrap className={styles.skillsContainer}>
-            <Tag color="purple" className={styles.skillTag}>
-              前端架构设计
-            </Tag>
-            <Tag color="blue" className={styles.skillTag}>
-              UI/UX 设计
-            </Tag>
-            <Tag color="green" className={styles.skillTag}>
-              产品需求分析
-            </Tag>
-            <Tag color="orange" className={styles.skillTag}>
-              团队管理
-            </Tag>
-            <Tag color="red" className={styles.skillTag}>
-              跨部门协作
-            </Tag>
-            <Tag color="cyan" className={styles.skillTag}>
-              技术培训
-            </Tag>
-            <Tag color="geekblue" className={styles.skillTag}>
-              性能优化
-            </Tag>
-            <Tag color="volcano" className={styles.skillTag}>
-              组件封装
-            </Tag>
-          </Space>
-        </motion.div>
+        <div className="about-capability">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportSection}
+            transition={{ ...transitionSilky, duration: 0.8 }}
+            className="about-capability-media"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&q=80&w=1200"
+              alt="系统化工作方式"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+          <motion.div
+            className="about-capability-cards"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportSection}
+          >
+            {capabilityCards.map((card) => (
+              <motion.article
+                key={card.title}
+                variants={fadeUpItem}
+                className="about-capability-card"
+              >
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

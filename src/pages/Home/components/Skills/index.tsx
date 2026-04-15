@@ -1,164 +1,88 @@
-import React from "react";
 import { motion } from "framer-motion";
 import styles from "./index.module.less";
 
+const skillGroups = [
+  {
+    title: "前端技术",
+    skills: [
+      { name: "React", level: 95 },
+      { name: "Vue.js", level: 90 },
+      { name: "TypeScript", level: 85 },
+    ],
+  },
+  {
+    title: "设计能力",
+    skills: [
+      { name: "UI/UX设计", level: 90 },
+      { name: "动画设计", level: 95 },
+      { name: "响应式设计", level: 88 },
+    ],
+  },
+  {
+    title: "工具 & 平台",
+    skills: [
+      { name: "Git", level: 92 },
+      { name: "Webpack/Vite", level: 85 },
+      { name: "Figma", level: 80 },
+    ],
+  },
+];
+
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className={`${styles.section} ${styles.bgLight}`}>
+    <section id="skills" className={styles.section}>
+      <div className={styles.deco} aria-hidden />
+
       <div className={styles.container}>
-        <motion.h2
-          className={styles.sectionTitle}
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          技术栈 & 能力
-        </motion.h2>
-        <div className={styles.skillsGrid}>
+        <div className={styles.headerRow}>
           <motion.div
-            className={styles.skillCategory}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3>前端技术</h3>
-            <div className={styles.skillItems}>
-              <div className={styles.skillItem}>
-                <span>React</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "95%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                  />
-                </div>
-              </div>
-              <div className={styles.skillItem}>
-                <span>Vue.js</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "90%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.4 }}
-                  />
-                </div>
-              </div>
-              <div className={styles.skillItem}>
-                <span>TypeScript</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "85%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.6 }}
-                  />
-                </div>
-              </div>
-            </div>
+            <span className={styles.eyebrow}>Expertise</span>
+            <h2 className={styles.sectionTitle}>技术栈 & 能力</h2>
           </motion.div>
+        </div>
 
-          <motion.div
-            className={styles.skillCategory}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3>设计能力</h3>
-            <div className={styles.skillItems}>
-              <div className={styles.skillItem}>
-                <span>UI/UX设计</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "90%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                  />
-                </div>
+        <div className={styles.grid}>
+          {skillGroups.map((group, idx) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className={styles.groupCol}
+            >
+              <h3 className={styles.groupTitle}>
+                <span className={styles.groupTitleLine} />
+                {group.title}
+              </h3>
+              <div className={styles.skillList}>
+                {group.skills.map((skill, sIdx) => (
+                  <div key={skill.name} className={styles.skillBlock}>
+                    <div className={styles.skillRowTop}>
+                      <span className={styles.skillName}>{skill.name}</span>
+                      <span className={styles.level}>{skill.level}%</span>
+                    </div>
+                    <div className={styles.track}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                        className={
+                          sIdx % 2 === 0 ? styles.barFill : styles.barFillAlt
+                        }
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className={styles.skillItem}>
-                <span>动画设计</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "95%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 1.0 }}
-                  />
-                </div>
-              </div>
-              <div className={styles.skillItem}>
-                <span>响应式设计</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "88%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 1.2 }}
-                  />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className={styles.skillCategory}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h3>工具 & 平台</h3>
-            <div className={styles.skillItems}>
-              <div className={styles.skillItem}>
-                <span>Git</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "92%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 1.4 }}
-                  />
-                </div>
-              </div>
-              <div className={styles.skillItem}>
-                <span>Webpack/Vite</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "85%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 1.6 }}
-                  />
-                </div>
-              </div>
-              <div className={styles.skillItem}>
-                <span>Figma</span>
-                <div className={styles.skillBar}>
-                  <motion.div
-                    className={styles.skillProgress}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "80%" }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 1.8 }}
-                  />
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

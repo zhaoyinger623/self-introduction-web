@@ -34,6 +34,11 @@ export default defineConfig({
         localIdentName: "[local]_[hash:base64:5]",
       },
     },
+    lightningcss: {
+      drafts: {
+        customMedia: true,
+      },
+    },
   },
   source: {
     define: {

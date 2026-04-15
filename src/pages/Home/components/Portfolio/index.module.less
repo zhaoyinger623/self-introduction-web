@@ -1,319 +1,35 @@
+@import (reference) "../../../../styles/mixins.less";
+
 .section {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
   position: relative;
+  min-height: 100vh;
+  padding: 5rem 1.5rem;
+  background: #fff;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-// 顶部标题区域
-.headerSection {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.featureTag {
-  display: inline-block;
-  background: rgb(242, 236, 255);
-  color: #7f48e1;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.sectionTitle {
-  font-size: 24px !important;
-  font-weight: bolder;
-  color: #2d1b69;
-  margin-bottom: 24px !important;
-  letter-spacing: 1px;
-}
-
-.sectionSubtitle {
-  font-size: 14px;
-  color: #666;
-  max-width: 800px;
-  margin: 0 auto !important;
-  line-height: 1.6;
-}
-
-// 作品行样式
-.portfolioRow {
-  margin-bottom: 60px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-// 作品内容区域
-.portfolioContent {
-  padding: 20px 0;
-}
-
-.portfolioTitle {
-  font-size: 24px;
-  font-weight: bolder;
-  margin-bottom: 12px !important;
-  line-height: 1.2;
-}
-
-.portfolioDescription {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.8;
-  margin-bottom: 12px !important;
-  div {
-    margin-bottom: 12px;
-  }
-}
-
-// 功能特性列表
-.featureList {
-  margin-bottom: 16px;
-}
-
-.featureItem {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.featureIcon {
-  width: 20px;
-  height: 20px;
-  color: #00c896;
-  margin-right: 12px;
-  flex-shrink: 0;
-}
-
-// 技术标签
-.techTags {
-  margin-bottom: 32px;
-  :global {
-    .ant-tag {
-      margin: 4px;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-    }
-  }
-}
-
-// 查看项目按钮
-.viewProjectBtn {
-  height: 44px;
-  padding: 0 24px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #7f48e1, #5378ff);
-  border: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: linear-gradient(135deg, #6a3fd8, #4a6bff);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(127, 72, 225, 0.3);
-  }
-}
-
-.btnIcon {
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-}
-
-// 作品图片容器
-.portfolioImageContainer {
+  .page-container();
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(127, 72, 225, 0.15);
+  z-index: 10;
 }
 
-.portfolioImage {
-  width: 100%;
-  height: 400px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  // 添加一些装饰性元素
-  &::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-  }
+.introTitle {
+  font-size: 2.25rem;
+  font-family: var(--font-serif);
+  line-height: 1.25;
+  margin: 0;
 }
 
-// 图片覆盖层
-.imageOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.introAccent {
+  font-style: italic;
+  color: var(--color-accent);
 }
 
-// 覆盖卡片
-.overlayCard {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  min-width: 160px;
+.iconSm {
+  width: 1rem;
+  height: 1rem;
 }
 
-.cardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-
-  .cardIcon {
-    width: 24px;
-    height: 24px;
-    color: #7f48e1;
-    margin-right: 8px;
-  }
-
-  span {
-    font-size: 14px;
-    color: #666;
-    font-weight: 500;
-  }
-}
-
-.cardValue {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #7f48e1;
-  margin-bottom: 8px;
-}
-
-.cardTrend {
-  font-size: 14px;
-  color: #00c896;
-  font-weight: 600;
-}
-
-// 响应式设计
-@media (max-width: 768px) {
-  .section {
-    padding: 16px 0;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-
-  .headerSection {
-    margin-bottom: 20px;
-  }
-
-  .sectionTitle {
-    font-size: 18px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .portfolioContent {
-    padding-bottom: 0;
-  }
-
-  .portfolioTitle {
-    font-size: 16px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .portfolioDescription {
-    font-size: 14px !important;
-  }
-
-  .techTags {
-    margin-bottom: 0;
-    :global {
-      .ant-tag {
-        font-size: 12px;
-        padding: 2px 8px;
-      }
-    }
-  }
-
-  .portfolioImageContainer {
-    width: 100% !important;
-    img {
-      width: 100% !important;
-      height: auto !important;
-    }
-  }
-
-  .portfolioRow {
-    :global {
-      .ant-row {
-        row-gap: 20px !important;
-      }
-    }
-  }
-
-  .trasferRow {
-    flex-direction: column-reverse !important;
-  }
-
-  .overlayCard {
-    padding: 20px;
-    min-width: 140px;
-  }
-
-  .cardValue {
-    font-size: 1.5rem;
-  }
-
-  .viewProjectBtn {
-    height: 40px;
-    padding: 0 20px;
-    font-size: 14px;
-  }
+.modalTitle {
+  margin: 0;
 }

@@ -1,71 +1,69 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Code, Palette, Lightbulb, Zap } from "lucide-react";
-import { Button } from "antd";
 import styles from "./index.module.less";
+import { easeSilky, transitionHero } from "../../../../motion/config";
 
 const Hero: React.FC = () => {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroContent}>
-        <motion.div
-          className={styles.heroText}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className={styles.heroTitle}>
-            你好，欢迎访问<span className={styles.highlight}>赵莹玥</span>
-            的个人网站。
-            <div>很高兴认识你～</div>
-          </h1>
-          <div className={styles.heroDescription}>
-            专注于创造美观、流畅、用户友好的Web体验
-          </div>
-          <div className={styles.heroDescription}>
-            热爱设计，追求代码与艺术的完美结合
-          </div>
-          <Button
-            size="large"
-            className={styles.ctaButton}
-            onClick={() => {
-              const aboutSection = document.getElementById("about");
-              if (aboutSection) {
-                aboutSection.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-            }}
+    <section className={styles.section}>
+      <div className="home-hero-media">
+        <div className={styles.videoWrap}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.video}
           >
-            开始了解
-          </Button>
-        </motion.div>
-        <motion.div
-          className={styles.heroVisual}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className={styles.cardGrid}>
-            <div className={`${styles.floatingCard} ${styles.cardTop}`}>
-              <Code className={styles.cardIcon} />
-              <span>前端开发</span>
-            </div>
-            <div className={`${styles.floatingCard} ${styles.cardLeft}`}>
-              <Palette className={styles.cardIcon} />
-              <span>UX体验</span>
-            </div>
-            <div className={`${styles.floatingCard} ${styles.cardRight}`}>
-              <Lightbulb className={styles.cardIcon} />
-              <span>产品设计</span>
-            </div>
-            <div className={`${styles.floatingCard} ${styles.cardBottom}`}>
-              <Zap className={styles.cardIcon} />
-              <span>创新</span>
-            </div>
+            <source
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <div className={`home-hero-overlay ${styles.overlay}`} />
+
+        <div className={`home-hero-inner ${styles.inner}`}>
+          <div className={styles.innerCenter}>
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...transitionHero, delay: 0.05 }}
+            >
+              <span className={styles.eyebrow}>
+                HELLO · I AM ZHAO YINGYUE
+              </span>
+              <h1 className={styles.title}>
+                你好，我是赵莹玥
+                <br />
+                <span className={`italic home-hero-line2`}>
+                  前端工程师 · 产品负责人
+                </span>
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: transitionHero.duration,
+                ease: easeSilky,
+                delay: 0.22,
+              }}
+              className={styles.content}
+            >
+              <div className={styles.badgeRow}>
+                <div className={styles.badge}>懂产品的前端</div>
+                <div className={styles.badge}>懂交付的负责人</div>
+              </div>
+
+              <p className={`${styles.lead} home-hero-lead`}>
+                擅长用技术与产品思维连接用户价值和业务目标，负责的不只是页面，
+                而是从想法到结果的完整闭环，在复杂协作中持续推动高质量上线。
+              </p>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
