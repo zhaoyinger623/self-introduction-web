@@ -1,7 +1,6 @@
 import React from "react";
 import { MotionConfig } from "framer-motion";
 import AppRouter from "./router/Router";
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { easeSilky } from "./motion/config";
 

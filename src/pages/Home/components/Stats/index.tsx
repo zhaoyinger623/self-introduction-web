@@ -1,7 +1,7 @@
 import { useId } from "react";
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { easeSilky, transitionSilky, viewportSection } from "../../../../motion/config";
+import { transitionSilky, viewportSection } from "../../../../motion/config";
 
 type StatItem = {
   value: string;
@@ -81,20 +81,9 @@ const stats: StatItem[] = [
   },
 ];
 
-function StatFlipCard({ stat, index }: { stat: StatItem; index: number }) {
+function StatFlipCard({ stat }: { stat: StatItem }) {
   return (
-    <motion.div
-      className="stats-flip-wrap"
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={viewportSection}
-      transition={{
-        ...transitionSilky,
-        duration: 0.68,
-        delay: index * 0.07,
-        ease: easeSilky,
-      }}
-    >
+    <div className="stats-flip-wrap">
       <div
         className="stats-flip-root"
         tabIndex={0}
@@ -112,7 +101,7 @@ function StatFlipCard({ stat, index }: { stat: StatItem; index: number }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -203,11 +192,10 @@ const Stats: React.FC = () => {
         </div>
 
         <div className="stats-grid-ref">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <StatFlipCard
               key={`${stat.label}-${stat.value}`}
               stat={stat}
-              index={index}
             />
           ))}
         </div>

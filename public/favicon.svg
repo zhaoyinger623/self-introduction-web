@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7f48e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rabbit-icon lucide-rabbit"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="leafGrad" x1="10%" y1="10%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#6fbf73" />
+      <stop offset="100%" stop-color="#2e7d32" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#f4faf4" />
+  <path
+    d="M49 13C35 14 24 22 20 34c-2 6-1 12 3 17 13-1 24-7 30-18 4-7 4-13-4-20z"
+    fill="url(#leafGrad)"
+  />
+  <path
+    d="M24 45c7-10 16-18 25-24"
+    fill="none"
+    stroke="#e8f5e9"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+</svg>

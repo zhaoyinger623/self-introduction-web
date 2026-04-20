@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import About from "./components/About";
+import RoleBoundaries from "./components/RoleBoundaries";
 import Portfolio from "./components/Portfolio";
 import Experience from "./components/Experience";
 import CTA from "./components/CTA";
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
         <Stats />
       </div>
       <About />
+      <RoleBoundaries />
       <Portfolio />
       <Experience />
       <CTA />

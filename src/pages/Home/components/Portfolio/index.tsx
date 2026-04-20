@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, X } from "lucide-react";
 import { Modal } from "antd";
@@ -7,11 +7,12 @@ import employeeTransfer from "../../../../assets/employee-transfer.png";
 import versionManagement from "../../../../assets/version-management.png";
 import styles from "./index.module.less";
 import {
-  fadeUpItem,
-  staggerContainer,
-  transitionSilky,
-  viewportSection,
-} from "../../../../motion/config";
+  eraNarrative,
+  portfolioOutcomesIntro,
+  projectOutcomes,
+  type ProjectOutcome,
+} from "./outcomes.mock";
+import { transitionSilky, viewportSection } from "../../../../motion/config";
 
 type Project = {
   id: string;
@@ -23,6 +24,11 @@ type Project = {
   tags: string[];
   link: string;
 };
+
+type MergedProject = Project &
+  Partial<Omit<ProjectOutcome, "projectId">> & {
+    displayTags: string[];
+  };
 
 const projects: Project[] = [
   {
@@ -67,12 +73,61 @@ const projects: Project[] = [
     tags: ["多端协同", "产品化建设", "稳定上线"],
     link: "#",
   },
+  {
+    id: "flyblock",
+    title: "飞块低代码平台 3.0",
+    category: "Low-Code Platform",
+    image:
+      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&q=80&w=1400",
+    desc: "在平台能力薄弱与外采受限背景下，主导飞块 3.0 方案设计与前端架构升级，推动低代码能力从“可用”走向“可规模化复用”。",
+    detailParagraphs: [
+      "基于业务和用户视角完成低代码产品调研，结合飞块 2.0 的能力边界，规划 MVP 并提出模块化 + 可视化配置架构。",
+      "主导平台关键能力设计与前端实现，兼顾可扩展性、组件标准化和搭建体验，确保复杂场景可落地。",
+      "通过指引文档、模板案例与推广支持，降低上手门槛，推动多业务团队自主搭建并稳定使用。",
+    ],
+    tags: ["低代码", "平台架构", "MVP 规划"],
+    link: "#",
+  },
+  {
+    id: "value-invest",
+    title: "价值投资项目",
+    category: "Multi-Agent Architecture",
+    image:
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=1400",
+    desc: "围绕价值投资打造多 Agent 投研系统，前端同步落地 PC 与 iOS 双端，打通“分析—任务—复盘”闭环。",
+    detailParagraphs: [
+      "后端基于 FastAPI 构建多智能体编排：以统一对话入口承接请求，通过意图路由分流到股票分析、Mission 任务流、模型工坊等链路，并用 SSE 持续输出推理、工具调用与结果片段。",
+      "面向长任务场景，引入 Plan-and-Execute 与状态机，把“创建任务→规划→确认→执行→落库→定时再跑”标准化，保证过程可解释、可复盘、可调度。",
+      "前端侧由我主导完成 PC 与 iOS 双端实现：统一信息架构与交互语言，做事件流可视化与任务状态呈现，让业务方在移动场景也能及时查看进度、结论与复盘产物。",
+    ],
+    tags: ["多Agent", "PC+iOS 双端", "SSE 流式", "任务编排"],
+    link: "#",
+  },
 ];
 
+function mergeProjects(list: Project[]): MergedProject[] {
+  const map = new Map(
+    projectOutcomes.map((o) => [o.projectId, o] as const),
+  );
+  return list.map((p) => {
+    const o = map.get(p.id as ProjectOutcome["projectId"]);
+    if (!o) {
+      return { ...p, displayTags: [...p.tags] };
+    }
+    const { projectId: _omit, ...outcomeRest } = o;
+    void _omit;
+    const displayTags = [...new Set([...p.tags, ...o.outcomeTags])];
+    return { ...p, ...outcomeRest, displayTags };
+  });
+}
+
 const Portfolio: React.FC = () => {
-  const [active, setActive] = useState<Project | null>(null);
+  const mergedProjects = useMemo(() => mergeProjects(projects), []);
+  const [active, setActive] = useState<MergedProject | null>(null);
 
   const close = useCallback(() => setActive(null), []);
+
+  const hasOutcome = (p: MergedProject) => Boolean(p.goal && p.outcome);
 
   return (
     <section id="portfolio" className={`portfolio-section ${styles.section}`}>
@@ -90,30 +145,44 @@ const Portfolio: React.FC = () => {
           className="portfolio-intro-head"
         >
           <div className="portfolio-intro-head-main">
-            <span className="portfolio-eyebrow">项目介绍</span>
+            <span className="portfolio-eyebrow">
+              {portfolioOutcomesIntro.eyebrow}
+            </span>
             <h2 className={styles.introTitle}>
-              主导核心项目，
+              {portfolioOutcomesIntro.titleLine1}
               <br />
-              <span className={styles.introAccent}>驱动业务增长</span>
+              <span className={styles.introAccent}>
+                {portfolioOutcomesIntro.titleAccent}
+              </span>
             </h2>
           </div>
-          <p className="portfolio-lead">
-            三个从 0 到 1 或攻坚交付的 B
-            端系统案例，覆盖架构、移动端与多端协同，体现工程与业务双线推进能力。
-          </p>
+          <p className="portfolio-lead">{portfolioOutcomesIntro.lead}</p>
         </motion.header>
 
         <motion.div
-          className="portfolio-cards"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
+          className={styles.eraWrap}
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportSection}
+          transition={{ ...transitionSilky, duration: 0.78 }}
         >
-          {projects.map((project) => (
-            <motion.article
+          <div className={styles.eraBlock}>
+            <h3 className={styles.eraTitle}>{eraNarrative.title}</h3>
+            <div className={styles.eraRow}>
+              {eraNarrative.blocks.map((b) => (
+                <div key={b.label}>
+                  <p className={styles.eraItemLabel}>{b.label}</p>
+                  <p className={styles.eraItemBody}>{b.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="portfolio-cards">
+          {mergedProjects.map((project) => (
+            <article
               key={project.id}
-              variants={fadeUpItem}
               className="portfolio-card"
               onClick={() => setActive(project)}
             >
@@ -151,20 +220,51 @@ const Portfolio: React.FC = () => {
 
               <div className="portfolio-card-body">
                 <h3 className="portfolio-card-title">{project.title}</h3>
-                <p className="portfolio-card-desc line-clamp-3">
-                  {project.desc}
-                </p>
-                <div className="portfolio-card-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="portfolio-tag">
-                      {tag}
-                    </span>
-                  ))}
+                {hasOutcome(project) && (
+                  <p className={styles.phaseLine}>
+                    {project.phase} · {project.timeline}
+                  </p>
+                )}
+                {hasOutcome(project) && !!project.highlights?.length && (
+                  <div className={styles.highlightRow}>
+                    {project.highlights.slice(0, 3).map((h) => (
+                      <span key={h} className={styles.highlightTag}>
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div className={styles.cardGrow}>
+                  <p
+                    className={`portfolio-card-desc ${styles.mergedDesc}`}
+                  >
+                    {project.desc}
+                  </p>
+                  {hasOutcome(project) && (
+                    <div className={styles.outcomeCompact}>
+                      <div className={`${styles.summaryBlock} ${styles.goalBlock}`}>
+                        <span className={styles.miniLabel}>目标</span>
+                        <p className={styles.summaryText}>{project.goal}</p>
+                      </div>
+                      <div className={`${styles.summaryBlock} ${styles.resultBlock}`}>
+                        <span className={`${styles.miniLabel} ${styles.resultLabel}`}>
+                          结果
+                        </span>
+                        <p className={styles.summaryText}>{project.outcome}</p>
+                      </div>
+                      <div className={`${styles.summaryBlock} ${styles.actionBlock}`}>
+                        <span className={styles.miniLabel}>关键动作</span>
+                        <p className={styles.summaryText}>
+                          {project.actions?.[0] ?? "——"}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <Modal
@@ -204,16 +304,71 @@ const Portfolio: React.FC = () => {
               />
             </div>
             <div className="portfolio-detail-copy">
-              {active.detailParagraphs.map((p, i) => (
-                <p key={i} className="portfolio-detail-para">
-                  {p}
-                </p>
-              ))}
-              <div className="portfolio-detail-tags">
-                {active.tags.map((tag) => (
-                  <span key={tag} className="portfolio-tag">
-                    {tag}
-                  </span>
+              {hasOutcome(active) && (
+                <>
+                  <h4 className={styles.modalSectionLabel}>结果与影响</h4>
+                  <div className={styles.modalMetaRow}>
+                    <span className={styles.modalMetaChip}>{active.phase}</span>
+                    <span className={styles.modalMetaChip}>{active.timeline}</span>
+                    {active.myRole && (
+                      <span className={styles.modalMetaChip}>{active.myRole}</span>
+                    )}
+                  </div>
+                  <div className={styles.modalPlainList}>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>目标</span>
+                      <span className={styles.modalPlainText}>{active.goal}</span>
+                    </p>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>背景（冲突）</span>
+                      <span className={styles.modalPlainText}>{active.context}</span>
+                    </p>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>决策（取舍）</span>
+                      <span className={styles.modalPlainText}>{active.tradeoff}</span>
+                    </p>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>行动（你主导）</span>
+                      <span className={styles.modalPlainText}>{active.ownership}</span>
+                    </p>
+                  </div>
+                  <div className={styles.modalPlainList}>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>关键动作（方法）</span>
+                    </p>
+                    <ul className={styles.modalActionList}>
+                      {active.actions?.map((a) => (
+                        <li key={a}>{a}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.modalPlainList}>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>结果（数字）</span>
+                      <span className={styles.modalPlainText}>{active.outcome}</span>
+                    </p>
+                    <p className={styles.modalPlainItem}>
+                      <span className={styles.modalPlainLabel}>沉淀（可复用）</span>
+                      <span className={styles.modalPlainText}>{active.reusability}</span>
+                    </p>
+                  </div>
+                  {!!active.highlights?.length && (
+                    <div className={styles.modalHighlightRow}>
+                      {active.highlights.map((h) => (
+                        <span key={h} className={styles.highlightTag}>
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+              <h4 className={styles.modalSectionLabel}>案例与实现</h4>
+              <div className={styles.modalCaseList}>
+                {active.detailParagraphs.map((p, i) => (
+                  <p key={i} className={styles.modalCaseItem}>
+                    {p}
+                  </p>
                 ))}
               </div>
             </div>

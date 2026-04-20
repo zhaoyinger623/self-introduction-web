@@ -1,0 +1,147 @@
+@import (reference) "../../../../styles/mixins.less";
+
+.section {
+  padding: 5rem 1.5rem;
+  background: #f6f8f6;
+  overflow: hidden;
+}
+
+.container {
+  .page-container();
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #101828;
+  margin: 0 0 1rem;
+}
+
+.lead {
+  margin: 0 0 2.5rem;
+  max-width: 48rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.keywordRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: -1.35rem 0 2rem;
+}
+
+.keywordTag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-dark);
+  background: rgba(45, 90, 39, 0.08);
+  border: 1px solid rgba(45, 90, 39, 0.14);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 960px) {
+  .pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
+  }
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.5rem 1.35rem 1.35rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.pillarTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #101828;
+}
+
+.pillarSubtitle {
+  margin: 0 0 1.1rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.blockTitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 0 0 0.45rem;
+}
+
+.list {
+  margin: 0 0 1.1rem;
+  padding-left: 1.05rem;
+  font-size: 0.9rem;
+  line-height: 1.58;
+  color: #374151;
+}
+
+.list li {
+  margin-bottom: 0.4rem;
+}
+
+.boundaryBox {
+  margin-top: auto;
+  padding: 0.85rem 0.75rem;
+  border-radius: 0.85rem;
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px dashed rgba(15, 23, 42, 0.12);
+}
+
+.boundaryTitle {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.boundaryList {
+  margin: 0;
+  padding-left: 1.05rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+.boundaryList li {
+  margin-bottom: 0.35rem;
+}

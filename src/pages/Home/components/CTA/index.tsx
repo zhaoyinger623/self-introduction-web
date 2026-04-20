@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Phone, MessageCircle } from "lucide-react";
 import styles from "./index.module.less";
-import { transitionSilkySlow, viewportSection } from "../../../../motion/config";
+import {
+  transitionSilkySlow,
+  viewportSection,
+} from "../../../../motion/config";
 
 const PHONE = "13018269809";
 const WECHAT = "zhaoyingerya";
@@ -23,8 +26,8 @@ const CTA: React.FC = () => {
             className={styles.bgImg}
             referrerPolicy="no-referrer"
           />
-          <div className={styles.gradient1} />
-          <div className={styles.gradient2} />
+          {/* <div className={styles.gradient1} />
+          <div className={styles.gradient2} /> */}
 
           <div className={styles.content}>
             <div className={styles.panel}>
