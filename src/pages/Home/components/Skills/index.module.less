@@ -1,145 +1,115 @@
 @import (reference) "../../../../styles/mixins.less";
 
 .section {
-  position: relative;
-  min-height: 100vh;
   padding: 5rem 1.5rem;
-  background-color: #f1f5f1;
+  background: #fff;
   overflow: hidden;
-}
-
-.deco {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(45, 90, 39, 0.02);
-  transform: skewX(-12deg);
-  transform-origin: top right;
-  pointer-events: none;
 }
 
 .container {
   .page-container();
-  position: relative;
-  z-index: 10;
 }
 
-.headerRow {
-  margin-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: flex-end;
-  }
+.header {
+  margin-bottom: 2.5rem;
+  max-width: 40rem;
 }
 
 .eyebrow {
-  display: block;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  color: var(--color-gray-500);
+  display: inline-block;
+  font-size: 0.72rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
 }
 
-.sectionTitle {
-  font-size: 2.25rem;
-  font-family: var(--font-serif);
-  line-height: 1.25;
-  margin: 0;
+.title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #101828;
+  margin: 0 0 1rem;
+}
 
-  @media (min-width: 768px) {
-    font-size: 3rem;
-  }
+.lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #4b5563;
+  font-weight: 500;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 1.25rem;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 720px) {
+  .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
   }
 }
 
-.groupCol {
-  position: relative;
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
 }
 
-.groupTitle {
-  font-size: 1.5rem;
-  font-family: var(--font-serif);
-  margin: 0 0 2rem;
-  font-style: italic;
-  color: var(--color-accent);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.groupTitleLine {
-  width: 2rem;
-  height: 1px;
-  background: rgba(45, 90, 39, 0.3);
-  flex-shrink: 0;
-}
-
-.skillList {
+.card {
+  margin: 0;
+  padding: 1.35rem 1.2rem 1.25rem;
+  border-radius: 1.1rem;
+  background: #fafbfc;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  min-height: 100%;
 }
 
-.skillBlock:hover .skillName {
-  color: var(--color-accent);
+.cardTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #101828;
+  letter-spacing: -0.02em;
 }
 
-.skillRowTop {
+.cardSubtitle {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.tagList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: auto;
 }
 
-.skillName {
-  transition: color 0.2s ease;
-}
-
-.level {
-  color: var(--color-gray-500);
-}
-
-.track {
-  height: 0.5rem;
-  width: 100%;
-  background: var(--color-gray-100);
-  border-radius: 9999px;
-  overflow: hidden;
-  position: relative;
-}
-
-.barFill {
-  height: 100%;
-  border-radius: 9999px;
-  background: var(--color-accent);
-}
-
-.barFillAlt {
-  height: 100%;
-  border-radius: 9999px;
-  background: var(--color-accent-light);
+.tag {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #334155;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  padding: 0.32rem 0.65rem;
+  letter-spacing: 0.01em;
 }

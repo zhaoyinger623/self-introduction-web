@@ -2,8 +2,10 @@ import React from "react";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import RoleBoundaries from "./components/RoleBoundaries";
 import Portfolio from "./components/Portfolio";
+import TeamLeadership from "./components/TeamLeadership";
 import Experience from "./components/Experience";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
@@ -19,8 +21,10 @@ const Home: React.FC = () => {
         <Stats />
       </div>
       <About />
+      <Skills />
       <RoleBoundaries />
       <Portfolio />
+      <TeamLeadership />
       <Experience />
       <CTA />
       <Footer />

@@ -35,9 +35,11 @@ const Navbar: React.FC = () => {
 
         <div className={styles.links}>
           <a href="#about">关于</a>
+          <a href="#skills">技能</a>
           <a href="#roles">角色</a>
-          <a href="#experience">经历</a>
           <a href="#portfolio">作品</a>
+          <a href="#team">团队</a>
+          <a href="#experience">经历</a>
         </div>
 
         <motion.button

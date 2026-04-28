@@ -176,6 +176,7 @@
   margin: 0;
   font-size: 0.78rem;
   line-height: 1.52;
+  font-weight: 500;
   color: #4b5563;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -183,16 +184,32 @@
   overflow: hidden;
 }
 
-/* 弹窗：分节 */
+/* 弹窗：统一分割线粗细与层级（避免粗竖线 + 细横线混用） */
+@modal-divider: rgba(15, 23, 42, 0.1);
+
+/* 大区块仅用留白分隔，避免在「成果快照」标签下、「实现与验证」标题下多出横线 */
+.modalDetailSection {
+  margin: 0;
+  /* 与下方表格/卡片的左右留白对齐，避免标题区相对内容“贴边” */
+  padding: 1.35rem 0.25rem 0;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+}
+
 .modalSectionLabel {
-  margin: 0.9rem 0 0.65rem;
-  font-size: 0.76rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.93rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #334155;
-  padding-left: 0.5rem;
-  border-left: 3px solid rgba(45, 90, 39, 0.38);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+h4.modalSectionLabel {
+  margin-block-start: 0;
 }
 
 .modalMeta {
@@ -214,60 +231,121 @@
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 700;
-  color: #365240;
-  background: rgba(45, 90, 39, 0.08);
-  border: 1px solid rgba(45, 90, 39, 0.16);
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid @modal-divider;
 }
 
-.modalPlainList {
-  margin: 0;
+/* 结果与影响：单容器内行分割线一致 */
+.modalSpecTable {
+  margin: 0.35rem 0 0;
   padding: 0;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid @modal-divider;
+  border-radius: 0.65rem;
+  overflow: hidden;
+  background: #fafbfc;
 }
 
 .modalPlainItem {
   margin: 0;
-  padding: 0.6rem 0.1rem;
+  padding: 0.65rem 1rem;
   display: grid;
-  grid-template-columns: 8.2rem minmax(0, 1fr);
-  gap: 0.8rem;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  grid-template-columns: 7.75rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  border-bottom: 1px solid @modal-divider;
+  background: #fff;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 @media (max-width: 760px) {
   .modalPlainItem {
     grid-template-columns: 1fr;
-    gap: 0.22rem;
-    padding: 0.56rem 0;
+    gap: 0.35rem;
+    padding: 0.65rem 0.85rem;
   }
 }
 
 .modalPlainLabel {
-  font-size: 0.84rem;
-  line-height: 1.6;
-  font-weight: 700;
-  color: #0f172a;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  font-weight: 600;
+  color: #64748b;
 }
 
 .modalPlainText {
-  font-size: 0.94rem;
-  line-height: 1.68;
+  font-size: 0.835rem;
+  line-height: 1.62;
   font-weight: 500;
   color: #334155;
+}
+
+/* 与其它 modalPlainItem 同一套双列网格，标签左、内容右 */
+.modalPlainItemActions {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  display: grid;
+  grid-template-columns: 7.75rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  border-bottom: 1px solid @modal-divider;
+  background: #fff;
 }
 
 .modalActionList {
   margin: 0;
-  padding: 0 0 0.65rem 9.95rem;
-  font-size: 0.94rem;
-  line-height: 1.68;
+  /* 与其它「右侧正文」列左边缘对齐：避免 ul 默认缩进造成整列右移 */
+  padding: 0;
+  list-style: none;
+  font-size: 0.835rem;
+  line-height: 1.62;
   font-weight: 500;
   color: #334155;
+
+  li {
+    display: flex;
+    gap: 0.45rem;
+    align-items: flex-start;
+    margin: 0.32rem 0;
+    padding: 0;
+  }
+
+  li:first-child {
+    margin-top: 0;
+  }
+
+  li::before {
+    content: "";
+    flex: 0 0 0.32rem;
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-top: 0.55em;
+    border-radius: 999px;
+    background: rgba(45, 90, 39, 0.55);
+  }
+}
+
+.modalPlainItemActions .modalPlainLabel {
+  padding-top: 0.12rem;
 }
 
 @media (max-width: 760px) {
+  .modalPlainItemActions {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding: 0.65rem 0.85rem;
+    align-items: start;
+  }
+
+  .modalPlainItemActions .modalPlainLabel {
+    top: 0;
+  }
+
   .modalActionList {
-    padding: 0 0 0.58rem 1.1rem;
+    padding-left: 0;
   }
 }
 
@@ -275,21 +353,56 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin: 0.85rem 0 1rem;
+  margin: 0;
 }
 
-.modalCaseList {
-  display: grid;
-  gap: 0;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
+.modalMicroNote {
+  margin: -0.35rem 0 0.55rem;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* 标题与正文同一卡片：标题下不再叠一条「外框顶线」 */
+.modalCaseCard {
+  margin: 0;
+  border: 1px solid @modal-divider;
+  border-radius: 0.65rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.modalCaseCardTitle {
+  margin: 0;
+  padding: 0.65rem 1rem 0.55rem;
+  font-size: 0.93rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+h4.modalCaseCardTitle {
+  margin-block-start: 0;
+}
+
+.modalCaseRows {
+  margin: 0;
+  padding: 0;
 }
 
 .modalCaseItem {
   margin: 0;
-  padding: 0.7rem 0.1rem;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  font-size: 0.94rem;
-  line-height: 1.68;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid @modal-divider;
+  font-size: 0.835rem;
+  line-height: 1.62;
   font-weight: 500;
   color: #334155;
+  background: #fff;
+
+  &:first-child {
+    border-top: none;
+  }
 }

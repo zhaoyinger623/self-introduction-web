@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="赵莹玥 — Web 前端开发工程师（5 年经验）：前端技术负责人，战略与人力双工作台、低代码与价值投资系统等 0→1 落地。"
+    />
+    <title>赵莹玥 · Web 前端开发工程师 · 简历</title>
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --paper: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --soft: #64748b;
+        --line: #e2e8f0;
+        --accent: #4f46e5;
+        --accent-soft: #eef2ff;
+        --radius: 14px;
+        --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--ink);
+        background: radial-gradient(
+            1200px 600px at 10% -10%,
+            rgba(79, 70, 229, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 500px at 100% 0%,
+            rgba(14, 165, 233, 0.1),
+            transparent 50%
+          ),
+          var(--bg);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2.25rem 1.25rem 3rem;
+      }
+
+      .topbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1rem;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+      }
+
+      .topbar small {
+        color: var(--soft);
+      }
+
+      .sheet {
+        background: var(--paper);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        overflow: hidden;
+      }
+
+      header.resume-header {
+        padding: 2rem 2rem 1.5rem;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(
+          135deg,
+          rgba(79, 70, 229, 0.07),
+          rgba(255, 255, 255, 0.9)
+        );
+      }
+
+      .header-intro {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1.25rem 1.5rem;
+      }
+
+      .header-text {
+        flex: 1 1 220px;
+        min-width: 0;
+      }
+
+      .photo-wrap {
+        margin: 0;
+        flex: 0 0 auto;
+        width: 7.5rem;
+        aspect-ratio: 1698 / 2469;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(148, 163, 184, 0.45);
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+        background: #fff;
+      }
+
+      .photo-wrap img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 22%;
+      }
+
+      .name-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        letter-spacing: 0.02em;
+        font-weight: 750;
+      }
+
+      .title-badge {
+        display: inline-block;
+        margin-top: 0.35rem;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #3730a3;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .tagline {
+        margin: 0.5rem 0 0;
+        font-size: 1rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.65rem;
+      }
+
+      .hero-badges span {
+        font-size: 0.78rem;
+        font-weight: 650;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        border: 1px solid rgba(79, 70, 229, 0.28);
+        color: #4338ca;
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      .meta-grid {
+        margin-top: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.65rem 1rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .meta-grid div {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-grid dt {
+        margin: 0;
+        color: var(--soft);
+        font-weight: 600;
+        min-width: 4.5rem;
+      }
+
+      .meta-grid dd {
+        margin: 0;
+      }
+
+      main {
+        padding: 1.75rem 2rem 2.25rem;
+      }
+
+      section {
+        margin-top: 1.75rem;
+      }
+
+      section:first-of-type {
+        margin-top: 0;
+      }
+
+      h2 {
+        margin: 0 0 0.85rem;
+        font-size: 1.05rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #312e81;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      h2::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          rgba(79, 70, 229, 0.35),
+          transparent
+        );
+      }
+
+      h3 {
+        margin: 1.25rem 0 0.35rem;
+        font-size: 1.08rem;
+        font-weight: 700;
+      }
+
+      .job {
+        margin-top: 1.1rem;
+      }
+
+      .job:first-of-type {
+        margin-top: 0.25rem;
+      }
+
+      .job-head {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.75rem;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      .company {
+        font-weight: 750;
+        font-size: 1.05rem;
+      }
+
+      .period {
+        color: var(--soft);
+        font-size: 0.92rem;
+        white-space: nowrap;
+      }
+
+      .role-line {
+        margin: 0.15rem 0 0.5rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      ul {
+        margin: 0.35rem 0 0;
+        padding-left: 1.15rem;
+      }
+
+      li {
+        margin: 0.35rem 0;
+        color: var(--ink);
+      }
+
+      li::marker {
+        color: rgba(79, 70, 229, 0.55);
+      }
+
+      .project {
+        margin-top: 1.15rem;
+        padding: 1rem 1.05rem;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fafbff;
+      }
+
+      .project h3 {
+        margin: 0 0 0.35rem;
+      }
+
+      .project-meta {
+        color: var(--soft);
+        font-size: 0.92rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .project h4 {
+        margin: 0.85rem 0 0.35rem;
+        font-size: 0.95rem;
+        color: #334155;
+      }
+
+      .honors {
+        margin-top: 0.65rem;
+        padding: 0.65rem 0.75rem;
+        border-radius: 10px;
+        background: rgba(79, 70, 229, 0.06);
+        border: 1px dashed rgba(79, 70, 229, 0.25);
+        color: #3730a3;
+        font-size: 0.92rem;
+      }
+
+      .summary {
+        padding: 1rem 1.05rem;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(79, 70, 229, 0.06),
+          rgba(255, 255, 255, 0.6)
+        );
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 1rem 2rem 1.5rem;
+        border-top: 1px solid var(--line);
+        color: var(--soft);
+        font-size: 0.88rem;
+        text-align: center;
+      }
+
+      /* 屏幕上的「导出 PDF」按钮 */
+      .resume-pdf-btn {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 9999;
+        padding: 0.65rem 1.15rem;
+        font-size: 0.9rem;
+        font-weight: 650;
+        font-family: inherit;
+        color: #fff;
+        background: #4f46e5;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        box-shadow: 0 6px 24px rgba(79, 70, 229, 0.45);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          opacity 0.15s ease;
+      }
+
+      .resume-pdf-btn:hover:not(:disabled) {
+        background: #4338ca;
+        transform: translateY(-1px);
+      }
+
+      .resume-pdf-btn:disabled {
+        opacity: 0.75;
+        cursor: wait;
+      }
+
+      @media print {
+        /* 避免「背景图形」关闭时样式被吃掉 */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        body {
+          background: #fff !important;
+        }
+
+        .resume-pdf-btn {
+          display: none !important;
+        }
+
+        .topbar,
+        footer {
+          display: none;
+        }
+
+        .wrap {
+          padding: 0;
+          max-width: none;
+        }
+
+        .sheet {
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          background: #fff !important;
+        }
+
+        header.resume-header {
+          background: #f1effc !important;
+          border-bottom: 1px solid #e2e8f0 !important;
+        }
+
+        .project {
+          break-inside: avoid;
+          background: #fafbff !important;
+          border: 1px solid #e2e8f0 !important;
+        }
+
+        .job {
+          break-inside: avoid;
+        }
+
+        .photo-wrap {
+          box-shadow: none;
+          border-color: #cbd5e1 !important;
+        }
+
+        .honors {
+          background: #eef2ff !important;
+          border: 1px dashed #c7d2fe !important;
+          color: #312e81 !important;
+        }
+
+        .summary {
+          background: #f8f7fc !important;
+          border: 1px solid #e2e8f0 !important;
+          color: #334155 !important;
+        }
+
+        .title-badge {
+          background: #eef2ff !important;
+          color: #3730a3 !important;
+        }
+
+        .hero-badges span {
+          background: #fff !important;
+          border: 1px solid #c7d2fe !important;
+          color: #4338ca !important;
+        }
+
+        h2::after {
+          background: #c7d2fe !important;
+        }
+
+        a {
+          color: #1e40af !important;
+          text-decoration: none;
+        }
+      }
+
+      @page {
+        margin: 14mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <small>赵莹玥 · 简历（HTML）</small>
+        <small
+          ><a href="/self-introduction-web/">返回个人介绍主页</a></small
+        >
+      </div>
+
+      <article class="sheet">
+        <header class="resume-header">
+          <div class="header-intro">
+            <div class="header-text">
+              <div class="name-row">
+                <div>
+                  <h1>赵莹玥</h1>
+                  <div class="title-badge">Web 前端开发工程师</div>
+                  <p class="tagline">前端工程师 · 产品负责人</p>
+                  <div class="hero-badges" aria-label="个人定位">
+                    <span>懂产品的前端</span>
+                    <span>懂交付的负责人</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figure class="photo-wrap">
+              <img
+                src="fRg4u3Gon.jpeg"
+                alt="赵莹玥证件照"
+                width="1698"
+                height="2469"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <dl class="meta-grid">
+            <div>
+              <dt>电话</dt>
+              <dd><a href="tel:13018269809">13018269809</a></dd>
+            </div>
+            <div>
+              <dt>邮箱</dt>
+              <dd>
+                <a href="mailto:374270864@qq.com">374270864@qq.com</a>
+              </dd>
+            </div>
+            <div>
+              <dt>生日</dt>
+              <dd>1999-06-23</dd>
+            </div>
+            <div>
+              <dt>工作经验</dt>
+              <dd>5 年</dd>
+            </div>
+            <div>
+              <dt>婚姻状况</dt>
+              <dd>未婚</dd>
+            </div>
+            <div>
+              <dt>求职意向</dt>
+              <dd>Web 前端开发工程师</dd>
+            </div>
+            <div style="grid-column: 1 / -1">
+              <dt>个人网站</dt>
+              <dd>
+                <a
+                  href="https://zhaoyinger623.github.io/self-introduction-web/"
+                  >https://zhaoyinger623.github.io/self-introduction-web/</a
+                >
+              </dd>
+            </div>
+          </dl>
+        </header>
+
+        <main>
+          <section aria-labelledby="skills-heading">
+            <h2 id="skills-heading">专业技能</h2>
+            <h3>专业能力 · 前端开发</h3>
+            <ul>
+              <li>
+                熟练掌握 HTML / CSS / JavaScript / TypeScript；熟练掌握 Vue
+                2.0、Vue 3.0、React 框架及生态（vue-router、vuex、redux、zustand
+                等）；熟悉 Webpack、Vite、Rsbuild 等工程化工具与常用实践方案；深入理解前端工程化，可快速定位并解决高难度技术问题。
+              </li>
+              <li>
+                具备复杂中后台与移动端交付经验；熟悉组件化、权限与审计、富文本与流式（SSE）等典型企业场景；能以可观测、可回滚思路推进版本化发布与联调治理。
+              </li>
+            </ul>
+            <h3>能力拓展 · 项目管理 / 产品经理 / AI 协同</h3>
+            <ul>
+              <li>
+                具备 UI 设计、产品方案设计与跨部门推进能力，能带领小团队完成从需求澄清到上线的全链路闭环；擅长把技术方案与业务价值对齐，减少沟通摩擦与返工。
+              </li>
+              <li>
+                落地多 Agent 与 AI
+                提效实践：在团队缺乏先例时搭建可复用框架并拆解分工；通过招商银行数字产品能力认证。
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="work-heading">
+            <h2 id="work-heading">工作经历</h2>
+
+            <div class="job">
+              <div class="job-head">
+                <div class="company">喜马拉雅 · Web 前端技术负责人</div>
+                <div class="period">2023 年 07 月 — 至今</div>
+              </div>
+              <p class="role-line">
+                核心职责：统筹前端团队流程与进度，主导战略级系统前端架构设计；落地前端 + AI
+                提效技术；承担产品经理 / 设计师职责并取得成果。
+              </p>
+              <p><strong>关键成果</strong></p>
+              <ul>
+                <li>
+                  统筹前端团队流程与进度，主导 DSTE（战略管理）与 HR
+                  工作台（人力资源管理）的前端架构与交付，覆盖组织架构、人才全生命周期与版本治理等核心能力，推动战略管理与人力资源数字化协同。
+                </li>
+                <li>
+                  主导版本管理能力从 0 到 1 产品化建设，以小步快跑版本（如
+                  v1.4.0→v1.14.0）控制发布风险；关键流程数字化覆盖率约
+                  90%，与下游数据自动同步，系统首年故障率 &lt;0.5%。
+                </li>
+                <li>
+                  作为飞块低代码 3.0 平台前端 Owner，推动「模块化 + 可视化配置」落地与推广；平台稳定运行
+                  16+ 个月，支撑 400+ 应用、1300+
+                  页面搭建，单页开发从天级缩短至小时级，显著降低重复搭建成本。
+                </li>
+                <li>
+                  组织复盘与知识分享，建立前端规范、组件库与双周会 /
+                  月刊机制；推进 AI
+                  提效方案落地，团队研发效能提升约 10%，前端侧提效约 5%–10%。
+                </li>
+                <li>
+                  跨职能闭环：承担 UI 与产品方案设计，形成「原型 → 设计 →
+                  开发」一致交付；作为<strong>价值投资系统</strong>的<strong>产品负责人</strong>，推动多
+                  Agent 投研在 PC 与 iOS 双端落地，完善任务编排与过程可观测体验。
+                </li>
+              </ul>
+              <div class="honors">
+                荣誉：2024 年度优秀员工；2024 年度 AI 创新大赛一等奖；2025
+                年晋升成功。
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-head">
+                <div class="company">
+                  招商银行 · 招银网络科技 · Web 前端开发工程师
+                </div>
+                <div class="period">2021 年 07 月 — 2023 年 07 月</div>
+              </div>
+              <p class="role-line">
+                负责中间业务收入定价系统 PC
+                与移动端前端重构，参与后端日常迭代；兼任产品设计师，承担产品管理系统跨团队需求推进与协作。
+              </p>
+              <ul>
+                <li>
+                  主导核心页面重构，显著提升稳定性与交互一致性，保障重点项目按期上线。
+                </li>
+              </ul>
+              <div class="honors">
+                荣誉：优秀新员工；招商银行前端编程比赛第一名；管理信息开发团队创新大赛多个一等奖。
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading">项目及作品</h2>
+
+            <div class="project">
+              <h3>双核心系统从 0 到 1 业务落地（DSTE 工作台、HR 工作台）</h3>
+              <div class="project-meta">
+                2024 年 1 月 — 2025 年 7 月 · 前端技术负责人 / 设计师 /
+                产品方案设计
+              </div>
+              <p>
+                <strong>背景</strong>：战略落地碎片化，各业务线进度难追踪、目标对齐效率低；人才管理依赖传统线下流程，效率低、数据不连贯。
+              </p>
+              <h4>困难与挑战</h4>
+              <ul>
+                <li>
+                  需结合业务方对未来发展的判断，在设计之初对系统健壮性、组件可复用性提出很高要求。
+                </li>
+                <li>
+                  时间紧、任务重，需在多研发协作下提高交付效率，并保证 UI
+                  体验统一与美观度。
+                </li>
+                <li>
+                  无专职 UX，前端团队缺少系统 UX
+                  训练，早期项目在操作流畅度与美观度上存在短板。
+                </li>
+              </ul>
+              <h4>角色与行动</h4>
+              <ul>
+                <li>
+                  <strong>技术负责人</strong>：擅长用技术与产品思维连接用户价值与业务目标，负责从想法到结果的完整闭环；在无专职
+                  UX 条件下以<strong>「技术 + 设计 + 产品」</strong>补位，统一体验语言并拍板交付节奏。主导
+                  <strong>DSTE</strong> 与 <strong>HR</strong>
+                  工作台从 0 到 1，设计双工作台架构，覆盖版本治理、组织架构与人才全链路，合理分工、把控进度、降低风险；主动承担高难度模块，按时保质交付，未出现生产事故。
+                </li>
+                <li>
+                  <strong>UX / UI</strong>：自学 UX 与产品设计理论，使用 UI
+                  工具完成高保真设计，产出 20+
+                  设计稿，并持续进行系统级 UX 回顾与迭代。
+                </li>
+                <li>
+                  <strong>产品设计</strong>：完成市场洞察、异动系统、晋升系统等产品方案；通过跨部门访谈拆解需求，基于用户故事地图梳理高频功能，推动方案落地。
+                </li>
+              </ul>
+              <h4>成果</h4>
+              <ul>
+                <li>
+                  <strong>晋升系统（2025 Q1–Q2）</strong>：前端主责并兼 UI /
+                  产品补位；统一核心页面与动态交互设计语言后并行开发；封装评分器、候选人信息港、富文本等
+                  12+
+                  个高复用组件，组织关键模块联调；引入 Rspress
+                  组件文档生成机制，降低多人协作下的重复封装与命名漂移。<strong>获评公司历史体验最佳晋升系统</strong>；二期一次性全量验收通过并当日上线；<strong>缺陷修复及时率
+                  100%</strong>。
+                </li>
+                <li>
+                  <strong>异动系统（2025 H1）</strong>：在业务、产品、研发多方人员更替背景下，以<strong>产品视角</strong>先对齐业务口径与最小上线包，再反推研发排期，约
+                  1
+                  个月推动主路径上线；持续统一交互并抽象富文本等能力复用到 HR / DSTE。
+                </li>
+                <li>
+                  <strong>版本管理系统（2024–2025）</strong>：主导版本节奏与能力拆分，兼顾「功能演进
+                  vs.
+                  稳定性」；版本管理能力支撑 DSTE 关键流程数字化覆盖率约
+                  90%，并与下游数据自动同步；建立发布与回滚协作机制，支撑多端协同迭代与可追溯发布。交付侧整体<strong>系统首年故障率
+                  &lt;0.5%</strong>；同步推进规范、组件库与 AI 提效，<strong>团队研发效能提升约
+                  10%</strong>，<strong>前端 AI 提效约 5%–10%</strong>。
+                </li>
+                <li>
+                  <strong>市场洞察系统</strong>：获得 CEO 与战略运行部 Leader
+                  好评，支撑战略侧洞察与决策协同。
+                </li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h3>飞块低代码平台 2.0 / 3.0</h3>
+              <div class="project-meta">
+                2023 年 7 月 — 至今（平台化持续演进）· 方案与架构 Owner /
+                前端主责
+              </div>
+              <p>
+                作为<strong>飞块低代码 3.0 平台前端 Owner</strong>，在平台能力薄弱与外采受限背景下完成竞品与现状差距分析，定义<strong>「模块化
+                + 可视化配置」</strong>架构与 <strong>MVP</strong>
+                边界，兼顾通用能力与扩展插槽，避免早期过度定制带来的维护成本。
+              </p>
+              <ul>
+                <li>
+                  主导飞块 3.0
+                  方案设计与前端架构升级，推动低代码从「可用」走向「可规模化复用」；编写指引与案例模板，推动业务侧自主搭建。
+                </li>
+                <li>
+                  平台长期稳定运行，支撑 <strong>400+</strong> 应用、<strong>1300+</strong>
+                  页面级搭建（统计口径随阶段更新），<strong>单页开发耗时从天级降至小时级</strong>，成为公司可复用的定制化低代码资产。
+                </li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h3>价值投资系统（多 Agent 投研）</h3>
+              <div class="project-meta">
+                2025 年 · <strong>产品负责人</strong> · PC + iOS 双端
+              </div>
+              <p>
+                担任<strong>产品负责人</strong>，围绕价值投资场景搭建多智能体投研底座，统一<strong>「分析—任务—复盘」</strong>闭环；定义产品目标与版本节奏，拍板多
+                Agent 能力与任务状态机。交付上同步落地 <strong>PC 与 iOS</strong>，以
+                <strong>SSE</strong>
+                实现过程可视化，让分析任务可规划、可执行、可复盘、可调度；在自动化与可靠性之间优先保证过程可见、状态落库与人机审核节点，再逐步提高自动化比例。
+              </p>
+              <ul>
+                <li>
+                  明确产品目标与用户路径，拍板多 Agent
+                  能力拆分、任务状态机与双端版本节奏；落地 Plan-and-Execute、调度与复盘视图，让长链路任务可规划、可执行、可观测。
+                </li>
+                <li>
+                  推动与研发、算法、业务的对齐，把任务语义、输出格式与验收口径写清；协同完成
+                  PC 与 iOS 统一信息架构与交互语言，覆盖任务列表、执行进度、结果详情与复盘。
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section aria-labelledby="edu-heading">
+            <h2 id="edu-heading">教育经历</h2>
+            <div class="job">
+              <div class="job-head">
+                <div class="company">
+                  成都理工大学（双一流）· 本科 · 计算机科学与技术
+                </div>
+                <div class="period">2017 年 9 月 — 2021 年 6 月</div>
+              </div>
+              <p class="role-line">
+                GPA：3.5 / 5.0 · 专业排名：前 10% · 荣誉：国家优秀奖学金、校级优秀干部、校级优秀毕业生、院级优秀学生
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="summary-heading">
+            <h2 id="summary-heading">个人总结</h2>
+            <div class="summary">
+              <p style="margin: 0">
+                5
+                年前端经验：从招行期间的业务交付，到喜马拉雅阶段的前端技术负责人，具备系统架构、版本化治理、UI
+                与产品落地的综合能力。习惯以可衡量结果对齐技术投入，在复杂协作中推动
+                0→1 与存量系统持续演进；带教校招生可独立承担中高难度任务。秉持「求实进取、积极主动」，持续深耕前端与业务结合，致力于成为兼具专业深度与业务影响力的技术负责人。
+              </p>
+            </div>
+          </section>
+        </main>
+
+        <footer>
+          本页右下角提供「导出为 PDF」；也可使用 Ctrl/Cmd+P
+          在打印对话框中选择「存储为 PDF」（请开启「背景图形」以保留底色与边框）。
+        </footer>
+      </article>
+    </div>
+
+    <button type="button" class="resume-pdf-btn" id="resumePdfBtn">
+      导出为 PDF
+    </button>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("resumePdfBtn");
+        var sheet = document.querySelector(".sheet");
+        if (!btn || !sheet) return;
+
+        function loadScript(src) {
+          return new Promise(function (resolve, reject) {
+            var s = document.createElement("script");
+            s.src = src;
+            s.async = true;
+            s.onload = function () {
+              resolve();
+            };
+            s.onerror = function () {
+              reject(new Error("load fail"));
+            };
+            document.head.appendChild(s);
+          });
+        }
+
+        function exportWithHtml2Pdf() {
+          var opt = {
+            margin: [8, 8, 8, 8],
+            filename: "赵莹玥-Web前端-简历.pdf",
+            image: { type: "jpeg", quality: 0.96 },
+            html2canvas: {
+              scale: 2,
+              useCORS: true,
+              allowTaint: true,
+              logging: false,
+            },
+            pagebreak: { mode: ["css", "legacy"] },
+            jsPDF: {
+              unit: "mm",
+              format: "a4",
+              orientation: "portrait",
+            },
+          };
+          return window.html2pdf().set(opt).from(sheet).save();
+        }
+
+        btn.addEventListener("click", function () {
+          btn.disabled = true;
+          var label = btn.textContent;
+          btn.textContent = "正在生成…";
+
+          function done() {
+            btn.disabled = false;
+            btn.textContent = label;
+          }
+
+          function tryPrintFallback() {
+            window.print();
+            done();
+          }
+
+          var p = Promise.resolve();
+          if (typeof window.html2pdf !== "function") {
+            p = loadScript(
+              "https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"
+            );
+          }
+
+          p.then(function () {
+            if (typeof window.html2pdf !== "function") {
+              tryPrintFallback();
+              return;
+            }
+            return exportWithHtml2Pdf();
+          })
+            .then(function () {
+              done();
+            })
+            .catch(function () {
+              tryPrintFallback();
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

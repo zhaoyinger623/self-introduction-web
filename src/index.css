@@ -1812,9 +1812,10 @@ img {
 
 .portfolio-card-desc {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  line-height: 1.65;
-  color: var(--color-gray-600);
+  /* 与卡片内 outcome 摘要（summaryText）同档，避免上大下小 */
+  font-size: 0.78rem;
+  line-height: 1.52;
+  color: #4b5563;
   font-weight: 500;
   margin: 0;
   flex: 1;
@@ -1930,7 +1931,7 @@ img {
 
 .portfolio-detail-para {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   line-height: 1.68;
   color: #4b5563;
   font-weight: 500;

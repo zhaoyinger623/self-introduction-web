@@ -47,18 +47,20 @@ const RoleBoundaries: React.FC = () => {
               variants={fadeUpItem}
               className={styles.pillar}
             >
-              <h3 className={styles.pillarTitle}>{pillar.title}</h3>
-              <p className={styles.pillarSubtitle}>{pillar.subtitle}</p>
+              <div className={styles.pillarMain}>
+                <h3 className={styles.pillarTitle}>{pillar.title}</h3>
+                <p className={styles.pillarSubtitle}>{pillar.subtitle}</p>
 
-              <p className={styles.blockTitle}>我负责</p>
-              <ul className={styles.list}>
-                {pillar.responsibilities.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
+                <p className={styles.blockTitle}>我负责</p>
+                <ul className={styles.list}>
+                  {pillar.responsibilities.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </div>
 
               <div className={styles.boundaryBox}>
-                <p className={styles.boundaryTitle}>边界（不代劳）</p>
+                <p className={styles.boundaryTitle}>协作原则</p>
                 <ul className={styles.boundaryList}>
                   {pillar.boundaries.map((line) => (
                     <li key={line}>{line}</li>
