@@ -2,7 +2,7 @@ export const skillsIntro = {
   eyebrow: "技术栈",
   title: "我会的技术与工具",
   lead:
-    "以下与当前项目栈及喜马拉雅任职期间的交付实践一致：偏 React 技术栈、工程化与可协作文档，并覆盖多端与 AI 相关场景。",
+    "以下与当前项目栈及喜马拉雅任职期间的交付实践一致：React / Vue 双栈经验，工程化与可协作文档，并覆盖多端与 AI 相关场景。",
 };
 
 export type SkillGroup = {
@@ -19,6 +19,7 @@ export const skillGroups: SkillGroup[] = [
     subtitle: "语言、框架与组件化",
     tags: [
       "React",
+      "Vue",
       "TypeScript",
       "JavaScript (ESNext)",
       "Less / CSS Modules",
@@ -26,11 +27,19 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "state",
+    title: "状态与三方库",
+    subtitle: "跨栈常用的状态管理与生态",
+    tags: ["Zustand", "Redux", "Vuex"],
+  },
+  {
     id: "dx",
     title: "工程化与体验",
     subtitle: "构建、UI 与动效",
     tags: [
       "Rsbuild",
+      "Webpack",
+      "Vite",
       "Ant Design",
       "Framer Motion",
       "React Router",
@@ -41,12 +50,7 @@ export const skillGroups: SkillGroup[] = [
     id: "delivery",
     title: "交付与协作",
     subtitle: "质量、流程与文档",
-    tags: [
-      "Git / 分支协作",
-      "Code Review",
-      "Rspress 组件文档",
-      "联调 · 走查 · 灰度与回滚",
-    ],
+    tags: ["Git / 分支协作", "Code Review", "Rspress 组件文档"],
   },
   {
     id: "domain",
